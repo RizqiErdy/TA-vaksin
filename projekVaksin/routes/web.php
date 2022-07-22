@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
-
+use App\Http\Controllers\KecamatanController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,3 +19,11 @@ Route::get('/', function () {
 });
 
 Route::get('/home', [AdminController::class, 'index'])->name('home');
+
+//Kecamatan
+Route::get('/admin/kecamatan', [KecamatanController::class, 'index'])->name('Kecamatan');
+Route::get('/admin/kecamatan/tambah', [KecamatanController::class, 'create']);
+Route::post('/admin/kecamatan/simpan', [KecamatanController::class, 'store']);
+Route::get('/admin/kecamatan/edit/{id_kecamatan}', [KecamatanController::class, 'edit']);
+Route::post('/admin/kecamatan/update/{id_kecamatan}', [KecamatanController::class, 'update']);
+Route::get('/admin/kecamatan/delete/{id_kecamatan}', [KecamatanController::class, 'delete']);
