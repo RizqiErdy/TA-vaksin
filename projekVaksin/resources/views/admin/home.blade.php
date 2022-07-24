@@ -11,9 +11,8 @@
               <!-- small box -->
               <div class="small-box bg-info">
                 <div class="inner">
-                  {{-- <h3>{{$kecamatan->count()}} </h3> --}}
-                  <h3>5</h3>
-  
+                  <h3>{{$kecamatan->count()}} </h3>
+                  
                   <p><a href="/admin/kecamatan">Daftar Kecamatan</a></p>
                 </div>
                 <div class="icon">
@@ -102,7 +101,7 @@
                   <!-- /.row -->
                 </div>
 
-{{-- <script>
+<script>
     var peta1 = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
 		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
 			'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
@@ -144,44 +143,25 @@
         "Dark": peta4
     };
 
-    // var overlayer = {
-    //   "Kecamatan" : Kecamatan,
-    // }
+    var overlayer = {
+      "Kecamatan" : Kecamatan,
+    }
 
-    // @foreach($kecamatan as $data)
-    //   L.geoJSON(<?= $data->geojson?>,{
-    //     style :{
-    //       fillColor: '{{$data->warna}}',
-    //       weight: 2,
-    //       opacity: 1,
-    //       color: 'white',
-    //       fillOpacity: 0.7
-    //     }
-    //   }).addTo(Kecamatan);
-    // @endforeach
+    @foreach($kecamatan as $data)
+      L.geoJSON(<?= $data->geojson?>,{
+        style :{
+          fillColor: '{{$data->warna}}',
+          weight: 2,
+          opacity: 1,
+          color: 'white',
+          fillOpacity: 0.7
+        }
+      }).addTo(Kecamatan);
+    @endforeach
 
-    // L.control.layers(baseMaps, overlayer).addTo(map);
+    L.control.layers(baseMaps, overlayer).addTo(map);
 
-    // //Menampilkan Tempat Ibadah Pada Peta
-    // @foreach($ibadah as $data)
-    //   var markerIbadah = L.icon({
-    //     iconUrl : '{{asset('marker')}}/{{$data->marker}}',
-    //     iconSize : [38, 55],
-    //   });
-
-    //   //Mengecek jika foto tidak ada maka membawakan foto default NoImage
-    //   var foto = '{{$data->foto}}';
-    //   if(foto != ''){
-    //     foto = '{{$data->foto}}';
-    //   }else{
-    //     foto = 'notfound.png';
-    //   }
-
-    //   //Menambahkan marker dan pop up informasi pada marker
-    //   var informasi = "<center><h4><b>{{$data->nama_tempatIbadah}}</b></h4><br><img style = 'width: 150px' src='{{asset('foto')}}/"+foto+"'<br><br>{{$data->jenis_ibadah}}<br>{{$data->alamat}}<br></center>"
-    //   L.marker([<?= $data->posisi?>],{icon: markerIbadah}).
-    //     addTo(map).
-    //     bindPopup(informasi);
-    // @endforeach
-</script> --}}
+    //Menampilkan Tempat Ibadah Pada Peta
+    
+</script>
 @endsection
