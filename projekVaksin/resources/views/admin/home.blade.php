@@ -131,7 +131,7 @@
     var Kecamatan = L.layerGroup();
 
     var map = L.map('map', {
-        center: [-7.560565, 110.816394],
+        center: [-7.667458996836592, 110.86606738627907],
         zoom: 13,
         layers: [peta1, Kecamatan]
     });
