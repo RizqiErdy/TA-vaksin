@@ -33,9 +33,9 @@ Route::post('/admin/kecamatan/update/{id_kecamatan}', [KecamatanController::clas
 Route::get('/admin/kecamatan/delete/{id_kecamatan}', [KecamatanController::class, 'delete']);
 
 //tempat Vaksin
-Route::get('/admin/tempatvaksin', [vaksinController::class, 'index'])->name('TempatVaksin');
-Route::get('/admin/tempatvaksin/tambah', [vaksinController::class, 'create']);
-Route::post('/admin/tempatvaksin/simpan', [vaksinController::class, 'store']);
-Route::get('/admin/tempatvaksin/edit/{id_tempatvaksin}', [vaksinController::class, 'edit']);
-Route::post('/admin/tempatvaksin/update/{id_tempatvaksin}', [vaksinController::class, 'update']);
-Route::get('/admin/tempatvaksin/delete/{id_tempatvaksin}', [vaksinController::class, 'delete']);
+Route::get('/admin/tempatVaksin', [vaksinController::class, 'index'])->name('TempatVaksin');
+Route::get('/admin/tempatVaksin/tambah', [vaksinController::class, 'create']);
+Route::post('/admin/tempatVaksin/simpan', [vaksinController::class, 'store']);
+Route::get('/admin/tempatVaksin/edit/{id_tempatvaksin}', [vaksinController::class, 'edit']);
+Route::post('/admin/tempatVaksin/update/{id_tempatVaksin}', [vaksinController::class, 'update']);
+Route::get('/admin/tempatVaksin/delete/{id_tempatVaksin}', [vaksinController::class, 'delete']);
