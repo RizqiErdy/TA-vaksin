@@ -82,7 +82,7 @@ class VaksinController extends Controller
             $this->VaksinModel->addData($Tempatvaksin);
         }
 
-        return redirect()->route('Tempatvaksin')->with('pesan', 'Data berhasil ditambahkan');
+        return redirect()->route('TempatVaksin')->with('pesan', 'Data berhasil ditambahkan');
     }
 
     public function edit($id_tempatvaksin)
@@ -90,9 +90,9 @@ class VaksinController extends Controller
 
         $data = [
             'title' => 'Edit Tempat vaksin',
-            'jenis' => $this->JenisModel->AllData(),
+            // 'jenis' => $this->JenisModel->AllData(),
             'kecamatan' => $this->KecamatanModel->AllData(),
-            'tempatvaksin' => $this->VaksinModel->TempatvaksinById($id_tempatvaksin),
+            'tempatVaksin' => $this->VaksinModel->TempatvaksinById($id_tempatvaksin),
 
         ];
         return view('admin.tempatvaksin.edit', $data);
@@ -150,7 +150,7 @@ class VaksinController extends Controller
             $this->VaksinModel->UpdateTempatvaksin($id_tempatvaksin, $Tempatvaksin);
         }
 
-        return redirect()->route('Tempatvaksin')->with('pesan', 'Data berhasil diupdate');
+        return redirect()->route('TempatVaksin')->with('pesan', 'Data berhasil diupdate');
     }
 
     public function delete($id_vaksin)
@@ -161,6 +161,6 @@ class VaksinController extends Controller
         }
 
         $this->VaksinModel->Deletevaksin($id_vaksin);
-        return redirect()->route('Tempatvaksin')->with('pesan', 'Data berhasil dihapus');
+        return redirect()->route('TempatVaksin')->with('pesan', 'Data berhasil dihapus');
     }
 }

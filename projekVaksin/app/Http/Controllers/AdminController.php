@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\KecamatanModel;
+use App\Models\WebModel;
 
 class AdminController extends Controller
 {
@@ -11,7 +12,7 @@ class AdminController extends Controller
     {
         // $this->middleware('auth');
         $this->KecamatanModel = new KecamatanModel();
-        // $this->JenisModel = new JenisModel();
+        $this->WebModel = new WebModel();
         // $this->UserModel = new User();
     }
     public function index()
@@ -19,6 +20,7 @@ class AdminController extends Controller
         $data = [
             'title' => 'Beranda',
             'kecamatan'=> $this->KecamatanModel->AllData(),
+            'vaksin'=>$this->WebModel->AllDataVaksin(),
         ];
         return view('admin.home',$data);
     }

@@ -25,7 +25,6 @@
                                 <th width="10px" class="text-center">No</th>
                                 <th>Nama</th>
                                 <th>Foto</th>
-                                <th>Deskripsi</th>
                                 <th>Fasilitas</th>
                                 <th>Alamat</th>
                                 <th>Kecamatan</th>
@@ -44,7 +43,6 @@
                                         <td><img src="{{asset('foto')}}/notfound.png" width="75px"></td>
 
                                     @endif
-                                    <td>{{$data->deskripsi}}</td>
                                     <td>{{$data->fasilitas}}</td>
                                     <td>{{$data->alamat}}</td>
                                     <td>{{$data->nama_kecamatan}}</td>

@@ -14,11 +14,14 @@ class CreateJadwalVaksinTable extends Migration
     public function up()
     {
         Schema::create('jadwal_vaksin', function (Blueprint $table) {
-            $table->id("id_tempatVaksin");
+            $table->id("id_jadwalVaksin");
             $table->date('tanggal');
             $table->time('jam_mulai');
             $table->time('jam_selesai');
             $table->string('jenis_vaksin');
+            $table->string('tipe_vaksin');
+            $table->unsignedBigInteger('id_tempatVaksin');
+            $table->foreign('id_tempatVaksin')->references('id_tempatVaksin')->on('tempat_vaksin');
             $table->timestamps();
         });
     }

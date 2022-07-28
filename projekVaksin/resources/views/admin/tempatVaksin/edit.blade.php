@@ -16,18 +16,18 @@ $jsArray = "var prdID = new Array();\n";
                     <form role="form" action="/admin/tempatVaksin/update/{{$tempatVaksin->id_tempatVaksin}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
-                            <div class="col-sm-6">
+                            <div class="col-sm-12">
                                 <div class="form-group">
                                     <label>Nama Tempat Vaksin</label>
-                                    <input type="text" name="tempatVaksin" value="{{$tempatVaksin->nama_tempatVaksin}}" class="form-control" placeholder="Masukkan Nama Tempat Vaksin">
+                                    <input type="text" name="tempatvaksin" value="{{$tempatVaksin->nama_tempatVaksin}}" class="form-control" placeholder="Masukkan Nama Tempat Vaksin">
                                     <div class="text-danger">
-                                        @error('tempatVaksin')
+                                        @error('tempatvaksin')
                                             {{$message}}
                                         @enderror
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-12">
                                 <div class="form-group">
                                     <label>Kecamatan</label>
                                     <select name="kecamatan" id="kecamatan" class="form-control">
@@ -43,23 +43,12 @@ $jsArray = "var prdID = new Array();\n";
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-12">
-                                <div class="form-group">
-                                    <label>Alamat</label>
-                                    <input type="text" name="alamat" value="{{$tempatVaksin->alamat}}" class="form-control" placeholder="Masukkan Alamat Tempat Vaksin">
-                                    <div class="text-danger">
-                                        @error('alamat')
-                                            {{$message}}
-                                        @enderror
-                                    </div>
-                                </div>
-                            </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label>Deskripsi</label>
-                                    <textarea name="deskripsi" rows="2" class="form-control" placeholder="Deskripsi">{{$tempatVaksin->deskripsi}}</textarea>
+                                    <label>Alamat</label>
+                                    <textarea name="alamat" rows="2" class="form-control" placeholder="Alamat">{{$tempatVaksin->alamat}}</textarea>
                                     <div class="text-danger">
-                                        @error('deskripsi')
+                                        @error('alamat')
                                             {{$message}}
                                         @enderror
                                     </div>

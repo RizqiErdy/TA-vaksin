@@ -152,6 +152,25 @@
     L.control.layers(baseMaps, overlayer).addTo(map);
 
     //Menampilkan Tempat Vaksin Pada Peta
+    @foreach($vaksin as $data)
+      var markervaksin = L.icon({
+        iconUrl : '{{asset('marker')}}/marker.png',
+        iconSize : [25, 45],
+      });
 
+      //Mengecek jika foto tidak ada maka membawakan foto default NoImage
+      var foto = '{{$data->foto}}';
+      if(foto != ''){
+        foto = '{{$data->foto}}';
+      }else{
+        foto = 'notfound.png';
+      }
+
+      //Menambahkan marker dan pop up informasi pada marker
+      var informasi = "<center><h4><b>{{$data->nama_tempatVaksin}}</b></h4><br><img style = 'width: 150px' src='{{asset('foto')}}/"+foto+"'<br><br>{{$data->alamat}}<br></center>"
+      L.marker([<?= $data->posisi?>],{icon: markervaksin}).
+        addTo(map).
+        bindPopup(informasi);
+    @endforeach
 </script>
 @endsection

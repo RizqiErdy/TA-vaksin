@@ -16,18 +16,18 @@ $jsArray = "var prdID = new Array();\n";
                     <form role="form" action="/admin/tempatVaksin/simpan" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
-                            <div class="col-sm-6">
+                            <div class="col-sm-12">
                                 <div class="form-group">
                                     <label>Nama Tempat Vaksin</label>
-                                    <input type="text" name="tempatVaksin" class="form-control" placeholder="Masukkan Nama Tempat Vaksin">
+                                    <input type="text" name="tempatvaksin" class="form-control" placeholder="Masukkan Nama Tempat Vaksin">
                                     <div class="text-danger">
-                                        @error('tempatVaksin')
+                                        @error('tempatvaksin')
                                             {{$message}}
                                         @enderror
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-12">
                                 <div class="form-group">
                                     <label>Kecamatan</label>
                                     <select name="kecamatan" id="kecamatan" class="form-control">
@@ -43,23 +43,12 @@ $jsArray = "var prdID = new Array();\n";
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-12">
-                                <div class="form-group">
-                                    <label>Alamat</label>
-                                    <input type="text" name="alamat" class="form-control" placeholder="Masukkan Alamat Tempat Vaksin">
-                                    <div class="text-danger">
-                                        @error('alamat')
-                                            {{$message}}
-                                        @enderror
-                                    </div>
-                                </div>
-                            </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label>Deskripsi</label>
-                                    <textarea name="deskripsi" rows="2" class="form-control" placeholder="Deskripsi"></textarea>
+                                    <label>Alamat</label>
+                                    <textarea name="alamat" rows="2" class="form-control" placeholder="Alamat"></textarea>
                                     <div class="text-danger">
-                                        @error('deskripsi')
+                                        @error('alamat')
                                             {{$message}}
                                         @enderror
                                     </div>
@@ -145,7 +134,7 @@ $jsArray = "var prdID = new Array();\n";
 	});
 
     var map = L.map('map', {
-        center: [-7.560565, 110.816394],
+        center: [-7.667458996836592, 110.86606738627907],
         zoom: 13,
         layers: [peta2]
     });
