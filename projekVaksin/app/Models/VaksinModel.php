@@ -19,32 +19,37 @@ class VaksinModel extends Model
         'id_kecamatan',
     ];
 
-    public function AllData(){
+    public function AllData()
+    {
         return DB::table('tempat_vaksin')
-            ->join('kecamatan', 'kecamatan.id_kecamatan','=','tempat_vaksin.id_kecamatan')
+            ->join('kecamatan', 'kecamatan.id_kecamatan', '=', 'tempat_vaksin.id_kecamatan')
             ->get();
     }
 
-    public function addData($request){
+    public function addData($request)
+    {
         DB::table('tempat_vaksin')->insert($request);
     }
 
-    public function TempatVaksinById($id_tempatvaksin){
-        return DB::table('tempat_ibadah')
-            ->join('kecamatan', 'kecamatan.id_kecamatan','=','tempat_vaksin.id_kecamatan')
+    public function TempatVaksinById($id_tempatvaksin)
+    {
+        return DB::table('tempat_vaksin')
+            ->join('kecamatan', 'kecamatan.id_kecamatan', '=', 'tempat_vaksin.id_kecamatan')
             ->where('id_tempatVaksin', $id_tempatvaksin)
             ->first();
     }
 
-    public function UpdateTempatVaksin($id_tempatvaksin, $data){
+    public function UpdateTempatVaksin($id_tempatvaksin, $data)
+    {
         DB::table('tempat_vaksin')
             ->where('id_tempatVaksin', $id_tempatvaksin)
             ->update($data);
     }
 
-    public function DeleteVaksin($id_vaksin){
+    public function DeleteVaksin($id_vaksin)
+    {
         DB::table('tempat_vaksin')
-            ->where('id_tempatVaksin',$id_vaksin)
+            ->where('id_tempatVaksin', $id_vaksin)
             ->delete();
     }
 }

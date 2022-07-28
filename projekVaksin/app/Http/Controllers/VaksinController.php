@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\KecamatanModel;
 use App\Models\VaksinModel;
-class VasksinController extends Controller
+
+class VaksinController extends Controller
 {
     public function __construct()
     {
@@ -18,9 +19,9 @@ class VasksinController extends Controller
     {
         $data = [
             'title' => 'Tempat Vaksin',
-            'vaksin'=>$this->VaksinModel->AllData(),
+            'vaksin' => $this->VaksinModel->AllData(),
         ];
-        return view('admin.tempatvaksin.index',$data);
+        return view('admin.tempatvaksin.index', $data);
     }
 
     //Tambah Tempat vaksin
@@ -28,9 +29,9 @@ class VasksinController extends Controller
     {
         $data = [
             'title' => 'Tambah Tempat Vaksin',
-            'kecamatan'=>$this->KecamatanModel->AllData(),
+            'kecamatan' => $this->KecamatanModel->AllData(),
         ];
-        return view('admin.tempatvaksin.create',$data);
+        return view('admin.tempatvaksin.create', $data);
     }
 
     public function store()
@@ -54,48 +55,47 @@ class VasksinController extends Controller
             ]
         );
 
-        if(Request()->foto <> ""){
+        if (Request()->foto <> "") {
             $file = Request()->foto;
             $filename = $file->getClientOriginalName();
-            $file->move(public_path('foto'),$filename);
+            $file->move(public_path('foto'), $filename);
 
             $Tempatvaksin = [
                 'nama_tempatvaksin' => Request()->tempatvaksin,
-                'alamat'=> Request()->alamat,
+                'alamat' => Request()->alamat,
                 'fasilitas' => Request()->fasilitas,
                 'posisi' => Request()->posisi,
                 'foto' => $filename,
                 'id_kecamatan' => Request()->kecamatan,
             ];
-            
+
             $this->VaksinModel->addData($Tempatvaksin);
-        }else{
+        } else {
             $Tempatvaksin = [
                 'nama_tempatvaksin' => Request()->tempatvaksin,
-                'alamat'=> Request()->alamat,
+                'alamat' => Request()->alamat,
                 'fasilitas' => Request()->fasilitas,
                 'posisi' => Request()->posisi,
                 'id_kecamatan' => Request()->kecamatan,
             ];
-            
+
             $this->VaksinModel->addData($Tempatvaksin);
         }
 
         return redirect()->route('Tempatvaksin')->with('pesan', 'Data berhasil ditambahkan');
-    
     }
 
     public function edit($id_tempatvaksin)
     {
-        
+
         $data = [
             'title' => 'Edit Tempat vaksin',
-            'jenis'=>$this->JenisModel->AllData(),
-            'kecamatan'=>$this->KecamatanModel->AllData(),
-            'tempatvaksin'=>$this->VaksinModel->TempatvaksinById($id_tempatvaksin),
-            
+            'jenis' => $this->JenisModel->AllData(),
+            'kecamatan' => $this->KecamatanModel->AllData(),
+            'tempatvaksin' => $this->VaksinModel->TempatvaksinById($id_tempatvaksin),
+
         ];
-        return view('admin.tempatvaksin.edit',$data);
+        return view('admin.tempatvaksin.edit', $data);
     }
 
     public function update($id_tempatvaksin)
@@ -119,50 +119,48 @@ class VasksinController extends Controller
             ]
         );
 
-        if(Request()->foto <> ""){
+        if (Request()->foto <> "") {
             $vaksin = $this->VaksinModel->TempatvaksinById($id_tempatvaksin);
-            if($vaksin->foto <> ""){
-                unlink(public_path('foto').'/'.$vaksin->foto);
+            if ($vaksin->foto <> "") {
+                unlink(public_path('foto') . '/' . $vaksin->foto);
             }
             $file = Request()->foto;
             $filename = $file->getClientOriginalName();
-            $file->move(public_path('foto'),$filename);
+            $file->move(public_path('foto'), $filename);
 
             $Tempatvaksin = [
                 'nama_tempatvaksin' => Request()->tempatvaksin,
-                'alamat'=> Request()->alamat,
+                'alamat' => Request()->alamat,
                 'fasilitas' => Request()->fasilitas,
                 'posisi' => Request()->posisi,
                 'foto' => $filename,
                 'id_kecamatan' => Request()->kecamatan,
             ];
-            
+
             $this->VaksinModel->UpdateTempatvaksin($id_tempatvaksin, $Tempatvaksin);
-        }else{
+        } else {
             $Tempatvaksin = [
                 'nama_tempatvaksin' => Request()->tempatvaksin,
-                'alamat'=> Request()->alamat,
+                'alamat' => Request()->alamat,
                 'fasilitas' => Request()->fasilitas,
                 'posisi' => Request()->posisi,
                 'id_kecamatan' => Request()->kecamatan,
             ];
-            
+
             $this->VaksinModel->UpdateTempatvaksin($id_tempatvaksin, $Tempatvaksin);
         }
 
         return redirect()->route('Tempatvaksin')->with('pesan', 'Data berhasil diupdate');
-    
     }
 
     public function delete($id_vaksin)
     {
         $vaksin = $this->VaksinModel->TempatvaksinById($id_vaksin);
-        if($vaksin->foto <> ""){
-            unlink(public_path('foto').'/'.$vaksin->foto);
+        if ($vaksin->foto <> "") {
+            unlink(public_path('foto') . '/' . $vaksin->foto);
         }
-        
+
         $this->VaksinModel->Deletevaksin($id_vaksin);
         return redirect()->route('Tempatvaksin')->with('pesan', 'Data berhasil dihapus');
     }
-
 }

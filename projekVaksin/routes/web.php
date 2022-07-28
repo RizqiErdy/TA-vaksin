@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\KecamatanController;
 use App\Http\Controllers\VaksinController;
+use App\Http\Controllers\WebController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,9 +16,11 @@ use App\Http\Controllers\VaksinController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [WebController::class, 'index']);
+Route::get('/cari', [WebController::class, 'cari']);
+Route::get('/kecamatan/{id_kecamatan}', [WebController::class, 'kecamatan']);
+// Route::get('/jenis/{id_jenis}', [WebController::class, 'jenis']);
+Route::get('/tempatVaksin/{id_tempatVaksin}', [WebController::class, 'detail']);
 
 Route::get('/home', [AdminController::class, 'index'])->name('home');
 

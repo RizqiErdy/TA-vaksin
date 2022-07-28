@@ -47,8 +47,8 @@
       </li>
     </ul>
 
-    <center><h2>SIG Tempat Ibadah Surakarta</h2></center>
-    
+    <center><h2>SIG Persebaran Vaksinasi Kab.Sukoharjo</h2></center>
+
     <ul class="navbar-nav ml-auto">
       <!-- Messages Dropdown Menu -->
       <li class="nav-item dropdown">
@@ -69,9 +69,9 @@
   <aside class="main-sidebar sidebar-light-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-      <img src="{{ asset('foto')}}/logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+      <img src="{{ asset('foto')}}/logo3.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">SIG Tempat Ibadah</span>
+      <span class="brand-text font-weight-light">SIG Vaksin Sukoharjo</span>
     </a>
 
     <!-- Sidebar -->
@@ -109,18 +109,10 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/admin/jenis" class="nav-link {{ request()->is('admin/jenis')? 'active' : ''}}">
-              <i class="nav-icon fas fa-book"></i>
-              <p>
-                Jenis
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="/admin/tempatibadah" class="nav-link {{ request()->is('admin/tempatibadah')? 'active' : ''}}">
+            <a href="/admin/tempatVaksin" class="nav-link {{ request()->is('admin/tempatVaksin')? 'active' : ''}}">
               <i class="nav-icon fas fa-building"></i>
               <p>
-                Tempat Ibadah
+                Tempat Vaksin
               </p>
             </a>
           </li>
@@ -170,7 +162,7 @@
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <strong>Copyright &copy; SIG Tempat IBadah Kota Surakarta</strong>
+    <strong>Copyright &copy; SIG Persebaran Vaksinasi Kab.Sukoharjo</strong>
   </footer>
 
   <!-- Control Sidebar -->

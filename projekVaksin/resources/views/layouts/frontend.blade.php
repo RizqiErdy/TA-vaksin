@@ -12,7 +12,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!--Leaflet js-->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
-<title>Sigtibka | {{$title}}</title>
+<title>Siglpvs | {{$title}}</title>
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="{{ asset('adminLTE')}}/plugins/fontawesome-free/css/all.min.css">
@@ -56,20 +56,26 @@ scratch. This page gets rid of all links and provides the needed markup only.
   background-size: 18px;
   background-color: rgba(255, 255, 255, 1);
 }
+.bh-sl-loc-list {
+    height: 503px;
+    overflow-x: auto;
+    font-size: 18px;
+}
+
   </style>
 </head>
 <body class="hold-transition layout-top-nav">
 <div class="wrapper">
 
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand-md navbar-dark navbar-green">
+  <nav class="main-header navbar navbar-expand-md navbar-dark bg-danger">
     <div class="container">
       <a href="/" class="navbar-brand">
-        <img src="{{ asset('foto')}}/logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+        <img src="{{ asset('foto')}}/logo3.png" alt="AdminLTE Logo" class="brand-image "
              style="opacity: .8">
-        <span class="brand-text font-weight-light"><b>SIG Tempat Ibadah Surakarta</b></span>
+        <span class="brand-text font-weight-light"><b>SIGPV SUKOHARJO</b></span>
       </a>
-      
+
       <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -77,37 +83,31 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="collapse navbar-collapse order-3" id="navbarCollapse">
         <!-- Left navbar links -->
         <ul class="navbar-nav">
+
+        </ul>
+
+        <ul class="order-1 order-md-3 navbar-nav ml-auto">
+          <!-- Messages Dropdown Menu -->
           <li class="nav-item">
-            <a href="/" class="nav-link">Home</a>
-          </li>
+              <a href="/" class="nav-link">Home</a>
+            </li>
           <li class="nav-item dropdown">
-            <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Kecamatan</a>
-            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-              @foreach ($kecamatan as $dataKec)
-                <li><a href="/kecamatan/{{$dataKec->id_kecamatan}}" class="dropdown-item">{{$dataKec->nama_kecamatan}}</a></li>
-              @endforeach
-            </ul>
-          </li>
-          <li class="nav-item dropdown">
-            <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Jenis Ibadah</a>
-            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-              @foreach ($jenis as $dataJns)
-                <li><a href="/jenis/{{$dataJns->id_jenis}}" class="dropdown-item">{{$dataJns->jenis_ibadah}}</a></li>
-              @endforeach
-            </ul>
+              <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Kecamatan</a>
+              <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
+                @foreach ($kecamatan as $dataKec)
+                  <li><a href="/kecamatan/{{$dataKec->id_kecamatan}}" class="dropdown-item">{{$dataKec->nama_kecamatan}}</a></li>
+                @endforeach
+              </ul>
+            </li>
+
+          <li class="nav-item">
+            {{-- <a class="nav-link" href="{{ route('login') }}" >Login</a> --}}
           </li>
         </ul>
 
-        
       </div>
 
       <!-- Right navbar links -->
-      <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
-        <!-- Messages Dropdown Menu -->
-        <li class="nav-item">
-          <a class="nav-link" href="{{ route('login') }}" >Login</a>
-        </li>
-      </ul>
     </div>
   </nav>
   <!-- /.navbar -->
@@ -138,13 +138,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
   </div>
   <!-- /.content-wrapper -->
 
-  
+
 
   <!-- Main Footer -->
   <footer class="main-footer navbar-dark">
     <!-- To the right -->
     <!-- Default to the left -->
-    <center><p style="color: white">Copyright &copy; SIG Tempat IBadah Kota Surakarta</p></center>
+    <center><p style="color: white">Copyright &copy; SIG Persebaran Vaksinasi Kab.Sukoharjo</p></center>
   </footer>
 </div>
 <!-- ./wrapper -->

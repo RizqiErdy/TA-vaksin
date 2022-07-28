@@ -7,62 +7,52 @@
   }
   </style>
   <div class="row">
-            <div class="col-lg-3 col-6">
+            <div class="col-lg-4 col-6">
               <!-- small box -->
               <div class="small-box bg-info">
                 <div class="inner">
                   <h3>{{$kecamatan->count()}} </h3>
-                  
+
                   <p><a href="/admin/kecamatan">Daftar Kecamatan</a></p>
                 </div>
                 <div class="icon">
-                  
+
                 </div>
               </div>
             </div>
             <!-- ./col -->
-            <div class="col-lg-3 col-6">
+            <div class="col-lg-4 col-6">
               <!-- small box -->
               <div class="small-box bg-success">
                 <div class="inner">
                   {{-- <h3>{{$jenis->count()}}</h3> --}}
                   <h3>5</h3>
-                  <p><a href="/admin/jenis">Daftar Jenis Tempat ibadah</a></p>
+                  <p><a href="/admin/jenis">Daftar Jenis Tempat Vaksin</a></p>
                 </div>
                 <div class="icon">
-                  
+
                 </div>
-                
+
               </div>
             </div>
             <!-- ./col -->
-            <div class="col-lg-3 col-6">
+            <div class="col-lg-0 col-0">
               <!-- small box -->
-              <div class="small-box bg-warning">
-                <div class="inner">
-                  {{-- <h3>{{$ibadah->count()}}</h3> --}}
-                  <h3>5</h3>
-                  <p><a href="/admin/tempatibadah">Daftar Tempat Ibadah</a></p>
-                </div>
-                <div class="icon">
-                  
-                </div>
-                
-              </div>
+
             </div>
             <!-- ./col -->
-            <div class="col-lg-3 col-6">
+            <div class="col-lg-4 col-6">
               <!-- small box -->
               <div class="small-box bg-danger">
                 <div class="inner">
                   {{-- <h3>{{$user->count()}}</h3> --}}
                   <h3>5</h3>
-                  <p><a href="/admin/user">Daftar Users</a></p> 
+                  <p><a href="/admin/user">Daftar Users</a></p>
                 </div>
                 <div class="icon">
-                  
+
                 </div>
-               
+
               </div>
             </div>
             <section class="col connectedSortable">
@@ -74,30 +64,30 @@
                 <div class="card-header">
                   <h3 class="card-title">
                     <i class="fas fa-building mr-1"></i>
-                    SIG Tempat Ibadah Surakarta
+                    SIG Persebaran Vaksinasi Kab.Sukoharjo
                   </h3>
                   <div class="card-tools">
                     <ul class="nav nav-pills ml-auto">
-                    
+
                     </ul>
                   </div>
                 </div><!-- /.card-header -->
                 <div class="card-body">
                   <div class="tab-content p-0">
-                    
+
                     <div class="chart tab-pane active" id="map"
-                      style="position: relative; height: 400px; width:100%;">   
-                    
+                      style="position: relative; height: 400px; width:100%;">
+
                     </div>
                   </div>
                 </div><!-- /.card-body -->
               </div>
-              
+
             </section>
             <!-- /.Left col -->
             <!-- right col (We are only adding the ID to make the widgets sortable)-->
-            
-                    
+
+
                   <!-- /.row -->
                 </div>
 
@@ -161,7 +151,7 @@
 
     L.control.layers(baseMaps, overlayer).addTo(map);
 
-    //Menampilkan Tempat Ibadah Pada Peta
-    
+    //Menampilkan Tempat Vaksin Pada Peta
+
 </script>
 @endsection
