@@ -20,7 +20,9 @@ class JadwalModel extends Model
     ];
 
     public function AllData(){
-        return DB::table('jadwal_vaksin')->get();
+        return DB::table('jadwal_vaksin')
+        ->join('tempat_vaksin', 'jadwal_vaksin.id_tempatVaksin', '=', 'tempat_vaksin.id_tempatVaksin')
+        ->get();;
     }
 
     public function addData($request){

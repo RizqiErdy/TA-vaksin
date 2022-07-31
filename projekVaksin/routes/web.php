@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\KecamatanController;
 use App\Http\Controllers\VaksinController;
+use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\WebController;
 /*
 |--------------------------------------------------------------------------
@@ -33,9 +34,13 @@ Route::post('/admin/kecamatan/update/{id_kecamatan}', [KecamatanController::clas
 Route::get('/admin/kecamatan/delete/{id_kecamatan}', [KecamatanController::class, 'delete']);
 
 //tempat Vaksin
-Route::get('/admin/tempatVaksin', [vaksinController::class, 'index'])->name('TempatVaksin');
-Route::get('/admin/tempatVaksin/tambah', [vaksinController::class, 'create']);
-Route::post('/admin/tempatVaksin/simpan', [vaksinController::class, 'store']);
-Route::get('/admin/tempatVaksin/edit/{id_tempatvaksin}', [vaksinController::class, 'edit']);
-Route::post('/admin/tempatVaksin/update/{id_tempatVaksin}', [vaksinController::class, 'update']);
-Route::get('/admin/tempatVaksin/delete/{id_tempatVaksin}', [vaksinController::class, 'delete']);
+Route::get('/admin/tempatVaksin', [VaksinController::class, 'index'])->name('TempatVaksin');
+Route::get('/admin/tempatVaksin/tambah', [VaksinController::class, 'create']);
+Route::post('/admin/tempatVaksin/simpan', [VaksinController::class, 'store']);
+Route::get('/admin/tempatVaksin/edit/{id_tempatvaksin}', [VaksinController::class, 'edit']);
+Route::post('/admin/tempatVaksin/update/{id_tempatVaksin}', [VaksinController::class, 'update']);
+Route::get('/admin/tempatVaksin/delete/{id_tempatVaksin}', [VaksinController::class, 'delete']);
+
+//tempat Vaksin
+Route::get('/admin/jadwalVaksin', [JadwalController::class, 'index'])->name('JadwalVaksin');
+Route::post('/admin/jadwalVaksin/simpan', [JadwalController::class, 'store']);
