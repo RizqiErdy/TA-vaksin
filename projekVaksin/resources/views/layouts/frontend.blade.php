@@ -88,21 +88,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         <ul class="order-1 order-md-3 navbar-nav ml-auto">
           <!-- Messages Dropdown Menu -->
-          <li class="nav-item">
-              <a href="/" class="nav-link">Home</a>
+            <li class="nav-item">
+                <a href="/" class="nav-link">Home</a>
             </li>
-          <li class="nav-item dropdown">
-              <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Kecamatan</a>
-              <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-                @foreach ($kecamatan as $dataKec)
-                  <li><a href="/kecamatan/{{$dataKec->id_kecamatan}}" class="dropdown-item">{{$dataKec->nama_kecamatan}}</a></li>
-                @endforeach
-              </ul>
+            <li class="nav-item">
+                <a href="/tempatvaksin" class="nav-link">Tempat Vaksinasi</a>
             </li>
-
-          <li class="nav-item">
+            <li class="nav-item">
+                <a href="/" class="nav-link">About</a>
+            </li>
+            <li class="nav-item">
+                <a href="/" class="nav-link">Login</a>
             {{-- <a class="nav-link" href="{{ route('login') }}" >Login</a> --}}
-          </li>
+            </li>
         </ul>
 
       </div>

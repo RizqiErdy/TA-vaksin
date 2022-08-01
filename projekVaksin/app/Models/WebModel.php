@@ -42,6 +42,14 @@ class WebModel extends Model
             ->get();
     }
 
+    public function TempatVaksin()
+    {
+        return DB::table('tempat_vaksin')
+            // ->join('jenis', 'jenis.id_jenis', '=', 'tempat_vaksin.id_jenis')
+            ->join('kecamatan', 'kecamatan.id_kecamatan', '=', 'tempat_vaksin.id_kecamatan')
+            ->get();
+    }
+
     // public function JenisById($id_jenis)
     // {
     //     return DB::table('jenis')

@@ -15,29 +15,34 @@ class KecamatanModel extends Model
         'geojson',
     ];
 
-    public function AllData(){
+    public function AllData()
+    {
         return DB::table('kecamatan')->get();
     }
 
-    public function addData($request){
+    public function addData($request)
+    {
         DB::table('kecamatan')->insert($request);
     }
 
-    public function KecamatanById($id_kecamatan){
+    public function KecamatanById($id_kecamatan)
+    {
         return DB::table('kecamatan')
             ->where('id_kecamatan', $id_kecamatan)
             ->first();
     }
-    
-    public function UpdateKecamatan($id_kecamatan, $data){
+
+    public function UpdateKecamatan($id_kecamatan, $data)
+    {
         DB::table('kecamatan')
             ->where('id_kecamatan', $id_kecamatan)
             ->update($data);
     }
 
-    public function DeleteKecamatan($id_kecamatan){
+    public function DeleteKecamatan($id_kecamatan)
+    {
         DB::table('kecamatan')
-            ->where('id_kecamatan',$id_kecamatan)
+            ->where('id_kecamatan', $id_kecamatan)
             ->delete();
     }
 }

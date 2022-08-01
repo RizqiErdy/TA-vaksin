@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\KecamatanModel;
 
 use Illuminate\Http\Request;
@@ -17,9 +18,9 @@ class KecamatanController extends Controller
     {
         $data = [
             'title' => 'Kecamatan',
-            'kecamatan'=>$this->KecamatanModel->AllData(),
+            'kecamatan' => $this->KecamatanModel->AllData(),
         ];
-        return view('admin.kecamatan.index',$data);
+        return view('admin.kecamatan.index', $data);
     }
 
     //Tambah Kecamatan
@@ -28,7 +29,7 @@ class KecamatanController extends Controller
         $data = [
             'title' => 'Tambah Kecamatan',
         ];
-        return view('admin.kecamatan.create',$data);
+        return view('admin.kecamatan.create', $data);
     }
 
     public function store()
@@ -48,7 +49,7 @@ class KecamatanController extends Controller
 
         $Kecamatan = [
             'nama_kecamatan' => Request()->kecamatan,
-            'warna'=> Request()->warna,
+            'warna' => Request()->warna,
             'geojson' => Request()->geojson,
         ];
         $this->KecamatanModel->addData($Kecamatan);
@@ -57,13 +58,13 @@ class KecamatanController extends Controller
 
     public function edit($id_kecamatan)
     {
-        
+
         $data = [
             'title' => 'Edit Kecamatan',
-            'kecamatan'=>$this->KecamatanModel->KecamatanById($id_kecamatan),
-            
+            'kecamatan' => $this->KecamatanModel->KecamatanById($id_kecamatan),
+
         ];
-        return view('admin.kecamatan.edit',$data);
+        return view('admin.kecamatan.edit', $data);
     }
 
     public function update($id_kecamatan)
@@ -83,13 +84,13 @@ class KecamatanController extends Controller
 
         $Kecamatan = [
             'nama_kecamatan' => Request()->kecamatan,
-            'warna'=> Request()->warna,
+            'warna' => Request()->warna,
             'geojson' => Request()->geojson,
         ];
         $this->KecamatanModel->UpdateKecamatan($id_kecamatan, $Kecamatan);
         return redirect()->route('Kecamatan')->with('pesan', 'Data berhasil diubah');
     }
-    
+
     public function delete($id_kecamatan)
     {
         $this->KecamatanModel->DeleteKecamatan($id_kecamatan);

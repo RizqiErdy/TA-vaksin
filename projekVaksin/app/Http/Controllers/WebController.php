@@ -56,18 +56,15 @@ class WebController extends Controller
         return view('v_cari', $data);
     }
 
-    public function kecamatan($id_kecamatan)
+    public function tempatvaksin()
     {
-        $kec = $this->WebModel->KecamatanById($id_kecamatan);
         $data = [
-            'title' => 'Pemetaan Tempat Vaksin Bedasarkan ' . $kec->nama_kecamatan,
+            'title' => 'Tempat Vaksinasi Di Kab.Sukoharjo ',
+            'vaksin' => $this->WebModel->TempatVaksin(),
             'kecamatan' => $this->WebModel->DataKecamatan(),
-            // 'jenis' => $this->WebModel->DataJenis(),
-            'kec' => $kec,
-            'vaksin' => $this->WebModel->DataVaksinbyKecamatan($id_kecamatan),
         ];
 
-        return view('v_kecamatan', $data);
+        return view('v_tempatVaksin', $data);
     }
 
     // public function jenis($id_jenis)
@@ -86,9 +83,9 @@ class WebController extends Controller
 
     public function detail($id_tempatVaksin)
     {
-        $ibdh = $this->WebModel->DataVaksinById($id_tempatVaksin);
+        $tvaksin = $this->WebModel->DataVaksinById($id_tempatVaksin);
         $data = [
-            'title' => 'Detail Tempat Vaksin ' . $ibdh->nama_tempatVaksin,
+            'title' => 'Detail Tempat Vaksin ' . $tvaksin->nama_tempatVaksin,
             'kecamatan' => $this->WebModel->DataKecamatan(),
             // 'jenis' => $this->WebModel->DataJenis(),
             'vaksin' => $this->WebModel->DataVaksinById($id_tempatVaksin),

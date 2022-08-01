@@ -19,6 +19,7 @@ use App\Http\Controllers\WebController;
 
 Route::get('/', [WebController::class, 'index']);
 Route::get('/cari', [WebController::class, 'cari']);
+Route::get('/tempatvaksin', [WebController::class, 'tempatvaksin']);
 Route::get('/kecamatan/{id_kecamatan}', [WebController::class, 'kecamatan']);
 // Route::get('/jenis/{id_jenis}', [WebController::class, 'jenis']);
 Route::get('/tempatVaksin/{id_tempatVaksin}', [WebController::class, 'detail']);

@@ -3,83 +3,110 @@
   <section class="col connectedSortable">
     <div class="row">
   <!-- Left col -->
-  <section class="col-lg-8 connectedSortable">
-    <!-- Custom tabs (Charts with tabs)-->
-    <div class="card">
-      <div class="card-header">
-        <h3 class="card-title">
-          <i class="fas fa-building mr-1"></i>
-          Lokasi {{$vaksin->nama_tempatVaksin}}
-        </h3>
-      </div><!-- /.card-header -->
-      <div class="card-body">
+        <section class="col-lg-8 connectedSortable">
+            <!-- Custom tabs (Charts with tabs)-->
+            <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">
+                <i class="fas fa-building mr-1"></i>
+                Lokasi {{$vaksin->nama_tempatVaksin}}
+                </h3>
+            </div><!-- /.card-header -->
+            <div class="card-body">
 
-        <div class="tab-content p-0">
-          <div class="chart tab-pane active" id="map"
-          style="position: relative; height: 300px; width:100%;">
+                <div class="tab-content p-0">
+                <div class="chart tab-pane active" id="map"
+                style="position: relative; height: 300px; width:100%;">
 
-          </div>
+                </div>
+                </div>
+            </div><!-- /.card-body -->
+            </div>
+
+        </section>
+        <div class="col-lg-4">
+            <div class="card" style="height: 387px">
+                <div class="card-header">
+                <h3 class="card-title">Foto {{$vaksin->nama_tempatVaksin}}</h3>
+                    </div>
+                <!-- /.card-header -->
+                <div class="card-body p-0">                <br><center>
+                    @if($vaksin->foto != '')
+                    <img src="{{asset('foto')}}/{{$vaksin->foto}}" width="100%" height="280px">
+                    @else                    <img src="{{asset('foto')}}/notfound.png" width="100%" height="280px">
+                    @endif
+                </center>
+                </div>
+            </div>
+            <!-- /.card-body -->
         </div>
-      </div><!-- /.card-body -->
-    </div>
-  </section>
-  <div class="card col-sm-4">
-    <div class="card-header">
-      <h3 class="card-title">Foto {{$vaksin->nama_tempatVaksin}}</h3>
-    </div>
-    <!-- /.card-header -->
-    <div class="card-body p-0">
-      <br><center>
-        @if($vaksin->foto != '')
-          <img src="{{asset('foto')}}/{{$vaksin->foto}}" width="100%" height="280px">
-        @else
-          <img src="{{asset('foto')}}/notfound.png" width="100%" height="280px">
-        @endif
-      </center>
-    </div>
-    <!-- /.card-body -->
-  </div>
-  <div class="card col-lg-12 ">
-    <div class="card-header">
-      <h3 class="card-title">Detail Informasi Tempat Vaksin</h3>
-    </div>
-    <!-- /.card-header -->
-    <div class="card-body p-0">
-      <table class="table">
-        <thead>
-        </thead>
-        <tbody>
-          <tr>
-            <td><b>Nama</b></td>
-            <td style="width: 10px">:</td>
-            <td>{{$vaksin->nama_tempatVaksin}}</td>
-          </tr>
-          <tr>
-            <td><b>Alamat</b></td>
-            <td style="width: 10px">:</td>
-            <td>{{$vaksin->alamat}}</td>
-          </tr>
-          <tr>
-            <td><b>Deskripsi</b></td>
-            <td style="width: 10px">:</td>
-            <td>{{$vaksin->deskripsi}}</td>
-          </tr>
-          <tr>
-            <td><b>Fasilitas</b></td>
-            <td style="width: 10px">:</td>
-            <td>{{$vaksin->fasilitas}}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <!-- /.card-body -->
-  </div>
-  <!-- /.Left col -->
-  <!-- right col (We are only adding the ID to make the widgets sortable)-->
+        <section class="col-sm-8" connectedSortable>
+            <div class="card">
+                <div class="card-header">
+                <h3 class="card-title">Detail Informasi Tempat Vaksin</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body p-0">
+                <table class="table">
+                    <thead>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td style="width: 10px"><b>Nama</b></td>
+                        <td style="width: 10px">:</td>
+                        <td>{{$vaksin->nama_tempatVaksin}}</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 10px"><b>Alamat</b></td>
+                        <td style="width: 10px">:</td>
+                        <td>{{$vaksin->alamat}}</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 10px"><b>Fasilitas</b></td>
+                        <td style="width: 10px">:</td>
+                        <td>{{$vaksin->fasilitas}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+                </div>
+                <!-- /.card-body -->
+            </div>
+        </section>
+        <section class="col-sm-4 connectedSortable">
+            <div class="card">
+                <div class="card-header">
+                    <div class="grid text-center mb-1 mt-2">
+                        <i class="fa fa-calendar mr-1"></i>
+                        Jadwal Vaksin {{$vaksin->nama_tempatVaksin}}
+                    </div>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <div class="tab-content p-1">
+                        <div class="bh-sl-loc-list col-md-12">
+                            <div class="p-2 m-1 bg-light border">Grid item 1</div>
+                            <div class="p-2 m-1 bg-light border">Grid item 2</div>
+                            <div class="p-2 m-1 bg-light border">Grid item 3</div>
+                            <div class="p-2 m-1 bg-light border">Grid item 1</div>
+                            <div class="p-2 m-1 bg-light border">Grid item 2</div>
+                            <div class="p-2 m-1 bg-light border">Grid item 3</div>
+                            <div class="p-2 m-1 bg-light border">Grid item 1</div>
+                            <div class="p-2 m-1 bg-light border">Grid item 2</div>
+                            <div class="p-2 m-1 bg-light border">Grid item 3</div>
+                            <div class="p-2 m-1 bg-light border">Grid item 1</div>
+                            <div class="p-2 m-1 bg-light border">Grid item 2</div>
+                            <div class="p-2 m-1 bg-light border">Grid item 3</div>
+                          </div>
+                    </div>
+                </div><!-- /.card-body -->
+                </div>
+        </section>
+        <!-- /.Left col -->
+        <!-- right col (We are only adding the ID to make the widgets sortable)-->
 
 
-        <!-- /.row -->
-      </div>
+                <!-- /.row -->
+    </div>
 
 <script>
   var peta1 = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {

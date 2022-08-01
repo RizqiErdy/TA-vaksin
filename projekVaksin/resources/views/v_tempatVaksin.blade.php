@@ -3,7 +3,42 @@
   <section class="col connectedSortable">
      <div class="row">
   <!-- Left col -->
-        <section class="col-md-8 connectedSortable ">
+        <section class="col-sm-12 connectedSortable">
+            <div class="card">
+                <div class="card-header">
+                    <div class="grid text-center ">
+                        <i class="fa fa-filter mr-1"></i>
+                        Filter Data Tempat Vaksinasi
+                    </div>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <div class="tab-content p-1">
+                        <form method="post">
+                            <button type="submit" class="btn-r" id="all" name="all">All Data</button>
+                        </form>
+
+                        <form method="post" enctype="multipart/form-data">
+
+                            <div class="form-group mt-3">
+                            <label for="p_kota" class="form-label">Pilih Kota</label>
+                            <select name="kecamatan" id="kecamatan" class="form-control">
+                                <option value="">-- Pilih Kecamatan --</option>
+                                @foreach ($kecamatan as $dataKec)
+                                    <option value="{{$dataKec->id_kecamatan}}">{{$dataKec->nama_kecamatan}}</option>
+                                @endforeach
+                            </select>
+                            </div>
+
+                            <div class="text-center btn-s mt-3"><input type="submit" name="cari" value="Search"></div>
+                        </form>
+                    </div>
+                </div><!-- /.card-body -->
+            </div>
+        </section>
+
+  <!-- /.Left col -->
+        <section class="col-md-12 connectedSortable ">
             <!-- Custom tabs (Charts with tabs)-->
             <div class="card">
             <div class="card-header">
@@ -14,18 +49,6 @@
                 <div class="card-tools">
 
                 </div>
-                <div class="card-tools">
-                    <form class="form-inline" action="/cari" method="GET">
-                        @csrf
-                        <input class="form-control mr-sm-1" name="cari" value="{{ old('cari') }}" type="search" placeholder="Cari Lokasi Vaksinasi..." aria-label="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                    </form>
-                    <div class="text-danger">
-                        @error('cari')
-                            {{$message}}
-                        @enderror
-                    </div>
-                    </div>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -37,40 +60,45 @@
                 </div>
             </div><!-- /.card-body -->
             </div>
-
-        </section>
-  <!-- /.Left col -->
-        <section class="col-sm-4 connectedSortable">
-            <div class="card">
-                <div class="card-header">
-                    <div class="grid text-center mb-1 mt-2">
-                        <i class="fa fa-calendar mr-1"></i>
-                        Jadwal & Lokasi Vaksin 7 Hari Kedepan
-                    </div>
-                </div>
-                <!-- /.card-header -->
-                <div class="card-body">
-                    <div class="tab-content p-1">
-                        <div class="bh-sl-loc-list col-md-12">
-                            <div class="p-2 m-1 bg-light border">Grid item 1</div>
-                            <div class="p-2 m-1 bg-light border">Grid item 2</div>
-                            <div class="p-2 m-1 bg-light border">Grid item 3</div>
-                            <div class="p-2 m-1 bg-light border">Grid item 1</div>
-                            <div class="p-2 m-1 bg-light border">Grid item 2</div>
-                            <div class="p-2 m-1 bg-light border">Grid item 3</div>
-                            <div class="p-2 m-1 bg-light border">Grid item 1</div>
-                            <div class="p-2 m-1 bg-light border">Grid item 2</div>
-                            <div class="p-2 m-1 bg-light border">Grid item 3</div>
-                            <div class="p-2 m-1 bg-light border">Grid item 1</div>
-                            <div class="p-2 m-1 bg-light border">Grid item 2</div>
-                            <div class="p-2 m-1 bg-light border">Grid item 3</div>
-                          </div>
-                    </div>
-                </div><!-- /.card-body -->
-                </div>
         </section>
   <!-- right col (We are only adding the ID to make the widgets sortable)-->
-
+  <div class="col-sm-12">
+    <div class="text-center"><h2><b>Daftar Tempat Vaksinasi</b></h2></div>
+    <table id="example2" class="table table-bordered table-striped">
+      <thead>
+          <tr>
+            <th width="10px" class="text-center">No</th>
+            <th>Nama</th>
+            <th>Foto</th>
+            <th>Fasilitas</th>
+            <th>Alamat</th>
+            <th>Kecamatan</th>
+            <th width="150px" class="text-center">Action</th>
+          </tr>
+      </thead>
+      <tbody>
+          <?php $no=1?>
+          @foreach ($vaksin as $data)
+              <tr>
+                  <td class="text-center">{{$no++}}</td>
+                  <td>{{$data->nama_tempatVaksin}}</td>
+                  @if($data->foto != '')
+                  <td><img src="{{asset('foto')}}/{{$data->foto}}" width="75px"></td>
+                  @else
+                      <td><img src="{{asset('foto')}}/notfound.png" width="75px"></td>
+                  @endif
+                  <td>{{$data->fasilitas}}</td>
+                  <td>{{$data->alamat}}</td>
+                  <td>{{$data->nama_kecamatan}}</td>
+                  <td class="text-center">
+                      <a href="/tempatVaksin/{{$data->id_tempatVaksin}}" class="btn btn-sm btn-flat btn-info">detail</a>
+                      <button class="btn btn-sm btn-flat btn-success" onclick="return lokasi({{$data->posisi}})">lokasi</button>
+                  </td>
+              </tr>
+          @endforeach
+      </tbody>
+  </table>
+  </div>
 
         <!-- /.row -->
       </div>
@@ -169,7 +197,7 @@
       var div = L.DomUtil.create("div", "legend");
       div.innerHTML += "<h4>Keterangan</h4>";
 
-      div.innerHTML += '<img src="{{asset('marker')}}/marker.png" width="25px"><span>Tempat Vaksin</span><br>';
+      div.innerHTML += '<img src="{{asset('marker')}}/marker.png" width="20px"><span> Tempat Vaksin</span><br>';
 
       return div;
     };
