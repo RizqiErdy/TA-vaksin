@@ -50,6 +50,22 @@ class WebModel extends Model
             ->get();
     }
 
+    public function Jadwal7hari(){
+        return DB::table('jadwal_vaksin')
+        ->join('tempat_vaksin', 'jadwal_vaksin.id_tempatVaksin', '=', 'tempat_vaksin.id_tempatVaksin')
+        ->whereBetween('tanggal',[Carbon::now(),Carbon::now()->addDays(7)])
+        ->orderby('tanggal', 'ASC')
+        ->get();
+    }
+
+    public function JadwalByTempatVaksin($id_tempatVaksin){
+        return DB::table('jadwal_vaksin')
+        ->join('tempat_vaksin', 'jadwal_vaksin.id_tempatVaksin', '=', 'tempat_vaksin.id_tempatVaksin')
+        ->where('id_tempatVaksin', $id_tempatVaksin)
+        ->where('tanggal','>=',Carbon::now())
+        ->orderby('tanggal', 'ASC')
+        ->get();
+    }
     // public function JenisById($id_jenis)
     // {
     //     return DB::table('jenis')

@@ -62,4 +62,9 @@ class JadwalController extends Controller
         return redirect()->route('JadwalVaksin')->with('pesan', 'Data berhasil ditambahkan');
     }
     
+    public function delete($id_jadwalVaksin)
+    {
+        $this->JadwalModel->DeleteJadwal($id_jadwalVaksin);
+        return redirect()->route('JadwalVaksin')->with('pesan', 'Data berhasil dihapus');
+    }
 }

@@ -28,7 +28,7 @@ class WebController extends Controller
         $data = [
             'title' => 'Sistem Informasi Geografis Persebaran Vaksinasi Kabupaten Sukoharjo',
             'kecamatan' => $this->WebModel->DataKecamatan(),
-            // 'jenis' => $this->WebModel->DataJenis(),
+            'jadwal' => $this->WebModel->Jadwal7hari(),
             'vaksin' => $this->WebModel->AllDataVaksin(),
         ];
         return view('v_web', $data);
@@ -87,7 +87,7 @@ class WebController extends Controller
         $data = [
             'title' => 'Detail Tempat Vaksin ' . $tvaksin->nama_tempatVaksin,
             'kecamatan' => $this->WebModel->DataKecamatan(),
-            // 'jenis' => $this->WebModel->DataJenis(),
+            'jadwal' => $this->WebModel->JadwalByTempatVaksin($id_tempatVaksin),
             'vaksin' => $this->WebModel->DataVaksinById($id_tempatVaksin),
         ];
 

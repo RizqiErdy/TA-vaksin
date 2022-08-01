@@ -120,7 +120,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/admin/jadwalVaksin" class="nav-link {{ request()->is('admin/jadwalVaksin')? 'active' : ''}}">
+            <a href="/admin/jadwalvaksin" class="nav-link {{ request()->is('admin/jadwalVaksin')? 'active' : ''}}">
               <i class="nav-icon fas fa-calendar"></i>
               <p>
                 Jadwal Vaksin

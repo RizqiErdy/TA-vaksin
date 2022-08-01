@@ -34,14 +34,14 @@
                         <tbody>
                             <?php $no=1?>
                             @foreach ($jadwal as $data)
-                            <?php $t = date('d-m-Y',strtotime($data->tanggal));
+                            <?php $t = date('DD, d-m-Y',strtotime($data->tanggal));
                             ?>
                                 <tr>
                                     <td class="text-center">{{$no++}}</td>
                                     <td>{{$data->nama_tempatVaksin}}</td>
                                     <td>{{$data->jenis_vaksin}}</td>
                                     <td>{{$data->tipe_vaksin}}</td>
-                                    <td>{{$t}}</td>
+                                    <td>{{Carbon\Carbon::parse($data->tanggal)->translatedFormat('l, d F Y');}}</td>
                                     <td>{{$data->jam_mulai}} - {{$data->jam_selesai}}</td>
                                     <td class="text-center">
                                         <button class="btn btn-sm btn-flat btn-warning" data-toggle="modal" data-target="#ubah{{$data->id_jadwalVaksin}}"><i class="fa fa-edit"></i></button>
@@ -165,26 +165,31 @@
     </div>
     <!-- /.modal -->
 
-    {{-- @foreach($jadwal as $data)
-        <div class="modal fade" id="ubah{{$data->id}}">
+    @foreach($jadwal as $dataj)
+        <div class="modal fade" id="ubah{{$dataj->id_jadwalVaksin}}">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">Form Edit User</h4>
+                        <h4 class="modal-title">Form Edit Jadwal Vaksin</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                 </div>
                 <div class="modal-body">
-                    <form role="form" action="/admin/user/update/{{$data->id}}" method="POST" enctype="multipart/form-data">
+                    <form role="form" action="/admin/jadwalvaksin/update/{{$dataj->id_jadwalVaksin}}" method="POST" enctype="multipart/form-data">
                         @csrf                    
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <label>Nama User</label>
-                                    <input type="text" name="name" class="form-control" value="{{$data->name}}" placeholder="Masukkan Nama User">
+                                    <label>Tempat Vaksinasi</label>
+                                    <select name="tempatVaksin" id="tempatVaksin" class="form-control">
+                                        <option value="{{$dataj->id_tempatVaksin}}">{{$dataj->nama_tempatVaksin}}</option>
+                                        @foreach ($vaksin as $data)
+                                            <option value="{{$data->id_tempatVaksin}}">{{$data->nama_tempatVaksin}}</option>
+                                        @endforeach
+                                    </select>
                                     <div class="text-danger">
-                                        @error('name')
+                                        @error('tempatVaksin')
                                             {{$message}}
                                         @enderror
                                     </div>
@@ -192,21 +197,72 @@
                             </div>
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <label>Email</label>
-                                    <input type="email" name="email" class="form-control" value="{{$data->email}}" placeholder="Masukkan Email">
+                                    <label>Date:</label>
+                                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                                        <input type="text" name="tanggal" class="form-control datetimepicker-input" value="{{$dataj->tanggal}}" data-target="#reservationdate"/>
+                                        <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                        </div>
+                                    </div>
                                     <div class="text-danger">
-                                        @error('email')
+                                        @error('tanggal')
                                             {{$message}}
                                         @enderror
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Waktu Mulai</label>
+                                    <input type="text" name="jam_mulai" value="{{$dataj->jam_mulai}}" class="form-control" placeholder="Masukkan Waktu Mulai">
+                                    <div class="text-danger">
+                                        @error('jam_mulai')
+                                            {{$message}}
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Waktu Selesai</label>
+                                    <input type="text" name="jam_selesai" value="{{$dataj->jam_selesai}}" class="form-control" placeholder="Masukkan Waktu Selesai">
+                                    <div class="text-danger">
+                                        @error('jam_selesai')
+                                            {{$message}}
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Tipe Vaksin</label>
+                                    <input type="text" name="tipe_vaksin" value="{{$dataj->tipe_vaksin}}" class="form-control" placeholder="Masukkan Tipe Vaksin">
+                                    <div class="text-danger">
+                                        @error('tipe_vaksin')
+                                            {{$message}}
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Jenis Vaksin</label>
+                                    <input type="text" name="jenis_vaksin" value="{{$dataj->jenis_vaksin}}" class="form-control" placeholder="Masukkan Jenis Vaksin">
+                                    <div class="text-danger">
+                                        @error('jenis_vaksin')
+                                            {{$message}}
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            
+    
                         </div>
                 </div>
             
                 <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Tidak</button>
-                    <button class="btn btn-danger">Ya</button>
+                    <button class="btn btn-info">Ya</button>
                 </div>
                 </form>
             </div>
@@ -215,7 +271,8 @@
             <!-- /.modal-dialog -->
         </div>
         <!-- /.modal -->    
-      @endforeach --}}
+    @endforeach
+
 @foreach($jadwal as $data)
 <div class="modal fade" id="delete{{$data->id_jadwalVaksin}}">
     <div class="modal-dialog">
@@ -231,7 +288,7 @@
         </div>
         <div class="modal-footer justify-content-between">
             <button type="button" class="btn btn-default" data-dismiss="modal">Tidak</button>
-            <a href="/admin/user/delete/{{$data->id_jadwalVaksin}}" class="btn btn-danger">Ya</a>
+            <a href="/admin/jadwalvaksin/delete/{{$data->id_jadwalVaksin}}" class="btn btn-danger">Ya</a>
         </div>
       </div>
       <!-- /.modal-content -->
