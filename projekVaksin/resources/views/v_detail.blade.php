@@ -32,7 +32,7 @@
                 <!-- /.card-header -->
                 <div class="card-body p-0">                <br><center>
                     @if($vaksin->foto != '')
-                    <img src="{{asset('foto')}}/{{$vaksin->foto}}" width="100%" height="280px">
+                    <img src="{{asset('foto')}}/{{$vaksin->foto}}" width="90%" height="280px">
                     @else                    <img src="{{asset('foto')}}/notfound.png" width="100%" height="280px">
                     @endif
                 </center>
@@ -41,7 +41,7 @@
             <!-- /.card-body -->
         </div>
         <section class="col-sm-8" connectedSortable>
-            <div class="card">
+            <div class="card" style="height: 500px">
                 <div class="card-header">
                 <h3 class="card-title">Detail Informasi Tempat Vaksin</h3>
                 </div>
@@ -83,20 +83,26 @@
                 <!-- /.card-header -->
                 <div class="card-body">
                     <div class="tab-content p-1">
-                        <div class="bh-sl-loc-list col-md-12">
-                            <div class="p-2 m-1 bg-light border">Grid item 1</div>
-                            <div class="p-2 m-1 bg-light border">Grid item 2</div>
-                            <div class="p-2 m-1 bg-light border">Grid item 3</div>
-                            <div class="p-2 m-1 bg-light border">Grid item 1</div>
-                            <div class="p-2 m-1 bg-light border">Grid item 2</div>
-                            <div class="p-2 m-1 bg-light border">Grid item 3</div>
-                            <div class="p-2 m-1 bg-light border">Grid item 1</div>
-                            <div class="p-2 m-1 bg-light border">Grid item 2</div>
-                            <div class="p-2 m-1 bg-light border">Grid item 3</div>
-                            <div class="p-2 m-1 bg-light border">Grid item 1</div>
-                            <div class="p-2 m-1 bg-light border">Grid item 2</div>
-                            <div class="p-2 m-1 bg-light border">Grid item 3</div>
-                          </div>
+                        <div class="bh-sl-loc-list col-md-12" style="height: 392px">
+                            <?php $no=1?>
+                            @foreach ($jadwal as $data)
+                            <div class="p-2 m-1 bg-light border">
+                                <ul class="list list-unstyled">
+                                    <li>
+                                        <div class="list-label">{{$no++}}</div>
+                                        <div class="list-details">
+                                            <div class="list-content">
+                                                <div class="loc-name">{{Carbon\Carbon::parse($data->tanggal)->translatedFormat('l, d F Y');}}</div>
+                                                <div class="loc-time">Pukul {{$data->jam_mulai}} - {{$data->jam_selesai}}</div>
+                                                <div>Tipe Vaksin : {{$data->tipe_vaksin}}</div>
+                                                <div>Jenis Vaksin : {{$data->jenis_vaksin}}</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            @endforeach
+                        </div>
                     </div>
                 </div><!-- /.card-body -->
                 </div>

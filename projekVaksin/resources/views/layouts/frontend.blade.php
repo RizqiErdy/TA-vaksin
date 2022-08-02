@@ -61,6 +61,41 @@ scratch. This page gets rid of all links and provides the needed markup only.
     overflow-x: auto;
     font-size: 18px;
 }
+/* .bh-sl-loc-list .p-2 {
+    padding-bottom: 200px;
+} */
+.bh-sl-loc-list .p-2 .list-label {
+    float: left;
+    margin: 10px 0 0 6px;
+    padding: 6px;
+    width: 27px;
+    text-align: center;
+    background: #FC6F7B;
+    color: #fff;
+    font-weight: 700;
+    font-size: 10px;
+    border-radius: 15px;
+}
+.bh-sl-loc-list .p-2 .list-details {
+    /* float: left; */
+    margin-left: 40px;
+    width: 80%;
+    font-size: 15px;
+}
+.bh-sl-loc-list .p-2 .list-details .list-content {
+    padding: 5px;
+}
+.list-content .loc-name {
+    font-size: 15px;
+    font-weight: 700;
+}
+.list-unstyled {
+    padding-left: 0;
+    list-style: none;
+    list-style-position: initial;
+    list-style-image: initial;
+    list-style-type: none;
+}
 
   </style>
 </head>

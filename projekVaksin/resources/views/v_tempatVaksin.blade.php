@@ -21,7 +21,7 @@
                         <form method="post" enctype="multipart/form-data">
 
                             <div class="form-group mt-3">
-                            <label for="p_kota" class="form-label">Pilih Kota</label>
+                            <label for="p_kota" class="form-label">Pilih Kecamatan</label>
                             <select name="kecamatan" id="kecamatan" class="form-control">
                                 <option value="">-- Pilih Kecamatan --</option>
                                 @foreach ($kecamatan as $dataKec)
@@ -190,6 +190,15 @@
         addTo(vaksin).
         bindPopup(informasi);
     @endforeach
+
+    //Zoom Lokasi pada peta
+    const lokasi = (lat, lng) => {
+      map.setView([lat, lng],17);
+      const component = document.getElementById('scroll');
+      component.scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
 
     var legend = L.control({ position: "bottomright" });
 

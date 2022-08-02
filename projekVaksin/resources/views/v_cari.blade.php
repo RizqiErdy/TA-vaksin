@@ -55,7 +55,7 @@
             @foreach ($vaksin as $data)
                 <tr>
                     <td class="text-center">{{$no++}}</td>
-                    <td>{{$data->Vaksin}}</td>
+                    <td>{{$data->nama_tempatVaksin}}</td>
                     <td class="text-center">
                         <a href="/tempatVaksin/{{$data->id_tempatVaksin}}" class="btn btn-sm btn-flat btn-info">detail</a>
                         <button class="btn btn-sm btn-flat btn-success" onclick="return lokasi({{$data->posisi}})">lokasi</button>

@@ -38,12 +38,13 @@ Route::get('/admin/kecamatan/delete/{id_kecamatan}', [KecamatanController::class
 Route::get('/admin/tempatVaksin', [VaksinController::class, 'index'])->name('TempatVaksin');
 Route::get('/admin/tempatVaksin/tambah', [VaksinController::class, 'create']);
 Route::post('/admin/tempatVaksin/simpan', [VaksinController::class, 'store']);
-Route::get('/admin/tempatVaksin/edit/{id_tempatvaksin}', [VaksinController::class, 'edit']);
+Route::get('/admin/tempatVaksin/edit/{id_tempatVaksin}', [VaksinController::class, 'edit']);
 Route::post('/admin/tempatVaksin/update/{id_tempatVaksin}', [VaksinController::class, 'update']);
 Route::get('/admin/tempatVaksin/delete/{id_tempatVaksin}', [VaksinController::class, 'delete']);
 
-//tempat Vaksin
+//Jadwal Vaksin
 Route::get('/admin/jadwalvaksin', [JadwalController::class, 'index'])->name('JadwalVaksin');
 Route::post('/admin/jadwalvaksin/simpan', [JadwalController::class, 'store']);
-
+Route::get('/admin/jadwalvaksin/edit/{id_jadwalVaksin}', [VaksinController::class, 'edit']);
+Route::post('/admin/jadwalvaksin/update/{id_jadwalVaksin}', [VaksinController::class, 'update']);
 Route::get('/admin/jadwalvaksin/delete/{id_jadwalVaksin}', [JadwalController::class, 'delete']);

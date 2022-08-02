@@ -52,19 +52,30 @@
                 <div class="card-body">
                     <div class="tab-content p-1">
                         <div class="bh-sl-loc-list col-md-12">
-                            <div class="p-2 m-1 bg-light border">Grid item 1</div>
-                            <div class="p-2 m-1 bg-light border">Grid item 2</div>
-                            <div class="p-2 m-1 bg-light border">Grid item 3</div>
-                            <div class="p-2 m-1 bg-light border">Grid item 1</div>
-                            <div class="p-2 m-1 bg-light border">Grid item 2</div>
-                            <div class="p-2 m-1 bg-light border">Grid item 3</div>
-                            <div class="p-2 m-1 bg-light border">Grid item 1</div>
-                            <div class="p-2 m-1 bg-light border">Grid item 2</div>
-                            <div class="p-2 m-1 bg-light border">Grid item 3</div>
-                            <div class="p-2 m-1 bg-light border">Grid item 1</div>
-                            <div class="p-2 m-1 bg-light border">Grid item 2</div>
-                            <div class="p-2 m-1 bg-light border">Grid item 3</div>
-                          </div>
+                            <?php $no=1?>
+                            @foreach ($jadwal as $data)
+                            <div class="p-2 m-1 bg-light border">
+                                <ul class="list list-unstyled">
+                                    <li>
+                                        <div class="list-label">{{$no++}}</div>
+                                        <div class="list-details">
+                                            <div class="list-content">
+                                                <div class="loc-name">{{$data->nama_tempatVaksin}}</div>
+                                                <div class="loc-tgl">{{Carbon\Carbon::parse($data->tanggal)->translatedFormat('l, d F Y');}}</div>
+                                                <div class="loc-time">Pukul {{$data->jam_mulai}} - {{$data->jam_selesai}}</div>
+                                                <div>Tipe Vaksin : {{$data->tipe_vaksin}}</div>
+                                                <div>Jenis Vaksin : {{$data->jenis_vaksin}}</div>
+                                            </div>
+                                            <div class="list-content">
+                                                <button class="btn btn-sm btn-flat btn-success" onclick="return lokasi({{$data->posisi}})" >lokasi</button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            @endforeach
+                        </div>
                     </div>
                 </div><!-- /.card-body -->
                 </div>
@@ -163,17 +174,25 @@
         bindPopup(informasi);
     @endforeach
 
+    //Zoom Lokasi pada peta
+    const lokasi = (lat, lng) => {
+        map.setView([lat, lng],17);
+        const component = document.getElementById('scroll');
+        component.scrollIntoView({
+            behavior: 'smooth'
+        });
+        }
+
     var legend = L.control({ position: "bottomright" });
 
     legend.onAdd = function(map) {
       var div = L.DomUtil.create("div", "legend");
       div.innerHTML += "<h4>Keterangan</h4>";
 
-      div.innerHTML += '<img src="{{asset('marker')}}/marker.png" width="25px"><span>Tempat Vaksin</span><br>';
+      div.innerHTML += '<img src="{{asset('marker')}}/marker.png" width="25px"><span> Tempat Vaksin</span><br>';
 
       return div;
     };
-
     legend.addTo(map);
-  </script>
+    </script>
 @endsection

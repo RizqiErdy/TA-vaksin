@@ -9,7 +9,7 @@
                     <h3 class="card-title">Daftar Jadwal Vaksinasi</strong></h3>
                     <div class="card-tools">
                         <button class="btn btn-primary btn-flat btn-sm" data-toggle="modal" data-target="#tambah"><i class="fa fa-plus"></i>Tambah</button>
-                    </div> 
+                    </div>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
@@ -58,7 +58,7 @@
         </div>
     </div>
     <!-- /.content -->
-    
+
     <div class="modal fade" id="tambah">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -69,8 +69,8 @@
                     </button>
             </div>
             <div class="modal-body">
-                <form role="form" action="/admin/jadwalVaksin/simpan" method="POST" enctype="multipart/form-data">
-                    @csrf                    
+                <form role="form" action="/admin/jadwalvaksin/simpan" method="POST" enctype="multipart/form-data">
+                    @csrf
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="form-group">
@@ -148,14 +148,14 @@
                                 </div>
                             </div>
                         </div>
-                        
+
 
                     </div>
             </div>
-        
+
             <div class="modal-footer justify-content-between">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Tidak</button>
-                <button class="btn btn-danger">Ya</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                <button class="btn btn-danger">Simpan</button>
             </div>
             </form>
         </div>
@@ -177,7 +177,7 @@
                 </div>
                 <div class="modal-body">
                     <form role="form" action="/admin/jadwalvaksin/update/{{$dataj->id_jadwalVaksin}}" method="POST" enctype="multipart/form-data">
-                        @csrf                    
+                        @csrf
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="form-group">
@@ -255,14 +255,14 @@
                                     </div>
                                 </div>
                             </div>
-                            
-    
+
+
                         </div>
                 </div>
-            
+
                 <div class="modal-footer justify-content-between">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Tidak</button>
-                    <button class="btn btn-info">Ya</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                    <button class="btn btn-info">Simpan</button>
                 </div>
                 </form>
             </div>
@@ -270,7 +270,7 @@
             </div>
             <!-- /.modal-dialog -->
         </div>
-        <!-- /.modal -->    
+        <!-- /.modal -->
     @endforeach
 
 @foreach($jadwal as $data)
