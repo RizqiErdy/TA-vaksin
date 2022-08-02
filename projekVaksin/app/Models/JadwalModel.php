@@ -32,6 +32,12 @@ class JadwalModel extends Model
         DB::table('jadwal_vaksin')->insert($request);
     }
 
+    public function UpdateJadwal($id_jadwalVaksin, $data)
+    {
+        DB::table('jadwal_vaksin')
+            ->where('id_jadwalVaksin', $id_jadwalVaksin)
+            ->update($data);
+    }
 
     public function DeleteJadwal($id_jadwalVaksin)
     {

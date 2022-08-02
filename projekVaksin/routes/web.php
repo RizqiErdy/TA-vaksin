@@ -45,6 +45,5 @@ Route::get('/admin/tempatVaksin/delete/{id_tempatVaksin}', [VaksinController::cl
 //Jadwal Vaksin
 Route::get('/admin/jadwalvaksin', [JadwalController::class, 'index'])->name('JadwalVaksin');
 Route::post('/admin/jadwalvaksin/simpan', [JadwalController::class, 'store']);
-Route::get('/admin/jadwalvaksin/edit/{id_jadwalVaksin}', [VaksinController::class, 'edit']);
-Route::post('/admin/jadwalvaksin/update/{id_jadwalVaksin}', [VaksinController::class, 'update']);
+Route::post('/admin/jadwalvaksin/update/{id_jadwalVaksin}', [JadwalController::class, 'update']);
 Route::get('/admin/jadwalvaksin/delete/{id_jadwalVaksin}', [JadwalController::class, 'delete']);

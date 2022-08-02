@@ -13,12 +13,19 @@
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
+                    @if (count($errors) > 0)
+                    <div class="alert alert-danger alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <h5><i class="icon fas fa-times "></i>Data gagal disimpan </h5>
+                    </div>
+                    @endif
                     @if(session('pesan'))
                     <div class="alert alert-success alert-dismissible">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                         <h5><i class="icon fas fa-check"></i> {{session('pesan')}}</h5>
                     </div>
                     @endif
+                    
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
                             <tr>
@@ -92,8 +99,8 @@
                             <div class="form-group">
                                 <label>Date:</label>
                                 <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                                    <input type="text" name="tanggal" class="form-control datetimepicker-input" data-target="#reservationdate"/>
-                                    <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                                    <input type="date" name="tanggal" class="form-control datetimepicker-input">
+                                    <div class="input-group-append" data-toggle="datetimepicker">
                                         <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                     </div>
                                 </div>
@@ -107,7 +114,7 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label>Waktu Mulai</label>
-                                <input type="text" name="jam_mulai" class="form-control" placeholder="Masukkan Waktu Mulai">
+                                <input type="time" name="jam_mulai" class="form-control" placeholder="Masukkan Waktu Mulai">
                                 <div class="text-danger">
                                     @error('jam_mulai')
                                         {{$message}}
@@ -118,7 +125,7 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label>Waktu Selesai</label>
-                                <input type="text" name="jam_selesai" class="form-control" placeholder="Masukkan Waktu Selesai">
+                                <input type="time" name="jam_selesai" class="form-control" placeholder="Masukkan Waktu Selesai">
                                 <div class="text-danger">
                                     @error('jam_selesai')
                                         {{$message}}
@@ -199,7 +206,7 @@
                                 <div class="form-group">
                                     <label>Date:</label>
                                     <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                                        <input type="text" name="tanggal" class="form-control datetimepicker-input" value="{{$dataj->tanggal}}" data-target="#reservationdate"/>
+                                        <input type="date" name="tanggal" value="{{Carbon\Carbon::parse($dataj->tanggal)->translatedFormat('Y-m-d');}}" class="form-control datetimepicker-input" data-target="#reservationdate"/>
                                         <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
                                             <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                         </div>
@@ -214,7 +221,7 @@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label>Waktu Mulai</label>
-                                    <input type="text" name="jam_mulai" value="{{$dataj->jam_mulai}}" class="form-control" placeholder="Masukkan Waktu Mulai">
+                                    <input type="time" name="jam_mulai" value="{{$dataj->jam_mulai}}" class="form-control" placeholder="Masukkan Waktu Mulai">
                                     <div class="text-danger">
                                         @error('jam_mulai')
                                             {{$message}}
@@ -225,7 +232,7 @@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label>Waktu Selesai</label>
-                                    <input type="text" name="jam_selesai" value="{{$dataj->jam_selesai}}" class="form-control" placeholder="Masukkan Waktu Selesai">
+                                    <input type="time" name="jam_selesai" value="{{$dataj->jam_selesai}}" class="form-control" placeholder="Masukkan Waktu Selesai">
                                     <div class="text-danger">
                                         @error('jam_selesai')
                                             {{$message}}
