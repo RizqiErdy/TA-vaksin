@@ -30,7 +30,7 @@
                             </select>
                             </div>
 
-                            <div class="text-center btn-s mt-3"><input type="submit" name="cari" value="Search"></div>
+                            <div class="text-center btn-s mt-3"><input type="submit" name="cari" value="Filter"></div>
                         </form>
                     </div>
                 </div><!-- /.card-body -->
@@ -191,14 +191,7 @@
         bindPopup(informasi);
     @endforeach
 
-    //Zoom Lokasi pada peta
-    const lokasi = (lat, lng) => {
-      map.setView([lat, lng],17);
-      const component = document.getElementById('scroll');
-      component.scrollIntoView({
-        behavior: 'smooth'
-      });
-    }
+
 
     var legend = L.control({ position: "bottomright" });
 

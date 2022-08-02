@@ -67,20 +67,6 @@ class WebController extends Controller
         return view('v_tempatVaksin', $data);
     }
 
-    // public function jenis($id_jenis)
-    // {
-    //     $jns = $this->WebModel->JenisById($id_jenis);
-    //     $data = [
-    //         'title' => 'Pemetaan Tempat Vaksin ' . $jns->jenis_vak,
-    //         'kecamatan' => $this->WebModel->DataKecamatan(),
-    //         'jenis' => $this->WebModel->DataJenis(),
-    //         'jns' => $jns,
-    //         'ibadah' => $this->WebModel->DataIbadahbyJenis($id_jenis),
-    //     ];
-
-    //     return view('v_jenis', $data);
-    // }
-
     public function detail($id_tempatVaksin)
     {
         $tvaksin = $this->WebModel->DataVaksinById($id_tempatVaksin);

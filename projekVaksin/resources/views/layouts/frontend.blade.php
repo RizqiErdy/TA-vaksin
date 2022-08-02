@@ -70,7 +70,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     padding: 6px;
     width: 27px;
     text-align: center;
-    background: #FC6F7B;
+    background: #d9232d;
     color: #fff;
     font-weight: 700;
     font-size: 10px;
@@ -96,7 +96,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
     list-style-image: initial;
     list-style-type: none;
 }
-
+.btn-r {
+    background: #d9232d;
+    border: 0;
+    padding: 10px 24px;
+    color: #fff;
+    transition: 0.4s;
+    border-radius: 4px;
+}
+.btn-s input[type=submit] {
+    background: #d9232d;
+    border: 0;
+    padding: 10px 24px;
+    color: #fff;
+    transition: 0.4s;
+    border-radius: 4px;
+}
   </style>
 </head>
 <body class="hold-transition layout-top-nav">

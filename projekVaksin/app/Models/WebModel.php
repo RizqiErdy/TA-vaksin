@@ -69,6 +69,7 @@ class WebModel extends Model
             ->orderby('tanggal', 'ASC')
             ->get();
     }
+
     // public function JenisById($id_jenis)
     // {
     //     return DB::table('jenis')
