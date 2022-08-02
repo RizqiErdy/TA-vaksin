@@ -24,7 +24,7 @@
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                         <h5><i class="icon fas fa-check"></i> {{session('pesan')}}</h5>
                     </div>
-                    @endif
+                    @endif 
                     
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>

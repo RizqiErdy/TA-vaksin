@@ -136,7 +136,7 @@ $jsArray = "var prdID = new Array();\n";
     var map = L.map('map', {
         center: [-7.667458996836592, 110.86606738627907],
         zoom: 13,
-        layers: [peta2]
+        layers: [peta1]
     });
 
     var baseMaps = {

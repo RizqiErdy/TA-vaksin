@@ -47,3 +47,7 @@ Route::get('/admin/jadwalvaksin', [JadwalController::class, 'index'])->name('Jad
 Route::post('/admin/jadwalvaksin/simpan', [JadwalController::class, 'store']);
 Route::post('/admin/jadwalvaksin/update/{id_jadwalVaksin}', [JadwalController::class, 'update']);
 Route::get('/admin/jadwalvaksin/delete/{id_jadwalVaksin}', [JadwalController::class, 'delete']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
