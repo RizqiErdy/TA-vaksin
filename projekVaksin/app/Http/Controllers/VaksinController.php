@@ -10,7 +10,7 @@ class VaksinController extends Controller
 {
     public function __construct()
     {
-        // $this->middleware('auth');
+        $this->middleware('auth');
         $this->VaksinModel = new VaksinModel();
         $this->KecamatanModel = new KecamatanModel();
     }

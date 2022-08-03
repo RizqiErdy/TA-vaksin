@@ -10,7 +10,7 @@ class KecamatanController extends Controller
 {
     public function __construct()
     {
-        // $this->middleware('auth');
+        $this->middleware('auth');
         $this->KecamatanModel = new KecamatanModel();
     }
 

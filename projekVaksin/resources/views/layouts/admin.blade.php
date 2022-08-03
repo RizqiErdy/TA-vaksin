@@ -55,14 +55,14 @@
     <ul class="navbar-nav ml-auto">
       <!-- Messages Dropdown Menu -->
       <li class="nav-item dropdown">
-        {{-- <a class="nav-link" href="{{ route('logout') }}"
+        <a class="nav-link" href="{{ route('logout') }}"
         onclick="event.preventDefault();
                       document.getElementById('logout-form').submit();">
           <i class="fa fa-power-off"></i> Logout
         </a>
         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
           @csrf
-      </form> --}}
+      </form>
       </li>
     </ul>
 
@@ -85,8 +85,7 @@
           <img src="{{ asset('foto')}}/user.png" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          {{-- <a href="#" class="d-block">{{Auth::user()->name}}</a> --}}
-          <a href="#" class="d-block">nama</a>
+          <a href="#" class="d-block">{{Auth::user()->name}}</a>
         </div>
       </div>
 

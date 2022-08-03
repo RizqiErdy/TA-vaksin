@@ -7,7 +7,7 @@
   }
   </style>
   <div class="row">
-            <div class="col-lg-4 col-6">
+            <div class="col-lg-3 col-6">
               <!-- small box -->
               <div class="small-box bg-info">
                 <div class="inner">
@@ -21,13 +21,13 @@
               </div>
             </div>
             <!-- ./col -->
-            <div class="col-lg-4 col-6">
+            <div class="col-lg-3 col-6">
               <!-- small box -->
               <div class="small-box bg-success">
                 <div class="inner">
                   {{-- <h3>{{$jenis->count()}}</h3> --}}
-                  <h3>5</h3>
-                  <p><a href="/admin/jenis">Daftar Jenis Tempat Vaksin</a></p>
+                  <h3>{{$vaksin->count()}}</h3>
+                  <p><a href="/admin/jenis">Daftar Tempat Vaksin</a></p>
                 </div>
                 <div class="icon">
 
@@ -36,17 +36,27 @@
               </div>
             </div>
             <!-- ./col -->
-            <div class="col-lg-0 col-0">
+            <!-- ./col -->
+            <div class="col-lg-3 col-6">
               <!-- small box -->
-
+              <div class="small-box bg-warning">
+                <div class="inner">
+                  <h3>{{$jadwal->count()}}</h3>
+                  <p><a href="/admin/jadwalvaksin">Daftar Jadwal Vaksin</a></p>
+                </div>
+                <div class="icon">
+                  
+                </div>
+                
+              </div>
             </div>
             <!-- ./col -->
-            <div class="col-lg-4 col-6">
+            <!-- ./col -->
+            <div class="col-lg-3 col-6">
               <!-- small box -->
               <div class="small-box bg-danger">
                 <div class="inner">
-                  {{-- <h3>{{$user->count()}}</h3> --}}
-                  <h3>5</h3>
+                  <h3>{{$user->count()}}</h3>
                   <p><a href="/admin/user">Daftar Users</a></p>
                 </div>
                 <div class="icon">

@@ -15,7 +15,7 @@ class WebController extends Controller
     public function __construct()
     {
         $this->WebModel = new WebModel();
-        // $this->middleware('auth');
+        
     }
 
     /**

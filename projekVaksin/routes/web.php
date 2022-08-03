@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\KecamatanController;
 use App\Http\Controllers\VaksinController;
 use App\Http\Controllers\JadwalController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\WebController;
 /*
 |--------------------------------------------------------------------------
@@ -21,10 +22,11 @@ Route::get('/', [WebController::class, 'index']);
 Route::get('/cari', [WebController::class, 'cari']);
 Route::get('/tempatvaksin', [WebController::class, 'tempatvaksin']);
 Route::get('/kecamatan/{id_kecamatan}', [WebController::class, 'kecamatan']);
-// Route::get('/jenis/{id_jenis}', [WebController::class, 'jenis']);
 Route::get('/tempatVaksin/{id_tempatVaksin}', [WebController::class, 'detail']);
 
 Route::get('/home', [AdminController::class, 'index'])->name('home');
+
+Auth::routes();
 
 //Kecamatan
 Route::get('/admin/kecamatan', [KecamatanController::class, 'index'])->name('Kecamatan');
@@ -48,6 +50,11 @@ Route::post('/admin/jadwalvaksin/simpan', [JadwalController::class, 'store']);
 Route::post('/admin/jadwalvaksin/update/{id_jadwalVaksin}', [JadwalController::class, 'update']);
 Route::get('/admin/jadwalvaksin/delete/{id_jadwalVaksin}', [JadwalController::class, 'delete']);
 
-Auth::routes();
+//user
+Route::get('/admin/user', [UserController::class, 'index'])->name('User');
+Route::get('/admin/user/tambah', [UserController::class, 'create']);
+Route::post('/admin/user/simpan', [UserController::class, 'store']);
+Route::post('/admin/user/update/{id}', [UserController::class, 'update']);
+Route::get('/admin/user/delete/{id}', [UserController::class, 'delete']);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+

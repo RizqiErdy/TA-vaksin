@@ -10,7 +10,7 @@ class JadwalController extends Controller
 {
     public function __construct()
     {
-        // $this->middleware('auth');
+        $this->middleware('auth');
         $this->JadwalModel = new JadwalModel();
         $this->VaksinModel = new VaksinModel();
     }

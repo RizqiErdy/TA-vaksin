@@ -22,6 +22,11 @@ class WebModel extends Model
         return DB::table('kecamatan')->get();
     }
 
+    public function DataJadwal()
+    {
+        return DB::table('jadwal_vaksin')->get();
+    }
+
     // public function DataJenis()
     // {
     //     return DB::table('jenis')->get();
@@ -69,22 +74,6 @@ class WebModel extends Model
             ->orderby('tanggal', 'ASC')
             ->get();
     }
-
-    // public function JenisById($id_jenis)
-    // {
-    //     return DB::table('jenis')
-    //         ->where('id_jenis', $id_jenis)
-    //         ->first();
-    // }
-
-    // public function DataVaksinbyJenis($id_jenis)
-    // {
-    //     return DB::table('tempat_vaksin')
-    //         // ->join('jenis', 'jenis.id_jenis', '=', 'tempat_vaksin.id_jenis')
-    //         ->join('kecamatan', 'kecamatan.id_kecamatan', '=', 'tempat_vaksin.id_kecamatan')
-    //         ->where('tempat_vaksin.id_jenis', $id_jenis)
-    //         ->get();
-    // }
 
     public function CariDataVaksin($search)
     {
