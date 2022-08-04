@@ -44,7 +44,9 @@ class User extends Authenticatable
     ];
 
     public function AllData(){
-        return DB::table('users')->get();
+        return DB::table('users')
+        ->where('name','!=', 'Super Admin')
+        ->get();
     }
 
     public function addData($request){
