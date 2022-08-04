@@ -20,6 +20,7 @@ use App\Http\Controllers\WebController;
 
 Route::get('/', [WebController::class, 'index']);
 Route::get('/cari', [WebController::class, 'cari']);
+Route::get('/kecamatan', [WebController::class, 'kecamatan']);
 Route::get('/tempatvaksin', [WebController::class, 'tempatvaksin']);
 Route::get('/about', [WebController::class, 'about'])->name('about');
 Route::post('/send', [WebController::class, 'send'])->name('email.send');

@@ -126,6 +126,27 @@ class WebController extends Controller
         return view('v_tempatVaksin', $data);
     }
 
+    public function kecamatan(){
+        Request()->validate(
+            [
+                'kecamatan' => 'required',
+            ],
+            [
+                'kecamatan.required' => 'Pilih Kecamatan !!!',
+            ]
+        );
+        $id_kecamatan = Request()->kecamatan;
+        $kec = $this->WebModel->KecamatanById($id_kecamatan);
+        $data = [
+            'title' => 'Tempat Vaksin Kecamatan '. $kec->nama_kecamatan,
+            'kecamatan'=> $this->WebModel->DataKecamatan(),
+            'kec'=> $kec,
+            'ibadah'=>$this->WebModel->DataVaksinbyKecamatan($id_kecamatan),
+        ];
+
+        return view('v_kecamatan',$data);
+    }
+
     public function detail($id_tempatVaksin)
     {
         $tvaksin = $this->WebModel->DataVaksinById($id_tempatVaksin);

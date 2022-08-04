@@ -14,11 +14,8 @@
                 <!-- /.card-header -->
                 <div class="card-body">
                     <div class="tab-content p-1">
-                        <form method="post">
-                            <button type="submit" class="btn-r" id="all" name="all">All Data</button>
-                        </form>
-
-                        <form method="post" enctype="multipart/form-data">
+                      <a href="/tempatvaksin" type="button" class="btn btn-primary btn-flat btn-sm">All Data</a>  
+                        <form method="GET" enctype="multipart/form-data" action="/kecamatan">
 
                             <div class="form-group mt-3">
                             <label for="p_kota" class="form-label">Pilih Kecamatan</label>
