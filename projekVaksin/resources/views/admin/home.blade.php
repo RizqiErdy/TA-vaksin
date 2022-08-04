@@ -25,9 +25,8 @@
               <!-- small box -->
               <div class="small-box bg-success">
                 <div class="inner">
-                  {{-- <h3>{{$jenis->count()}}</h3> --}}
                   <h3>{{$vaksin->count()}}</h3>
-                  <p><a href="/admin/jenis">Daftar Tempat Vaksin</a></p>
+                  <p><a href="/admin/tempatVaksin">Daftar Tempat Vaksin</a></p>
                 </div>
                 <div class="icon">
 
@@ -45,9 +44,9 @@
                   <p><a href="/admin/jadwalvaksin">Daftar Jadwal Vaksin</a></p>
                 </div>
                 <div class="icon">
-                  
+
                 </div>
-                
+
               </div>
             </div>
             <!-- ./col -->
@@ -131,8 +130,8 @@
     var Kecamatan = L.layerGroup();
 
     var map = L.map('map', {
-        center: [-7.667458996836592, 110.86606738627907],
-        zoom: 13,
+        center: [-7.681188802658286, 110.83153298129844],
+        zoom: 11,
         layers: [peta1, Kecamatan]
     });
 

@@ -135,8 +135,8 @@
 
     // Variabel untuk menampilkan map
     var map = L.map('map', {
-    center: [-7.667458996836592, 110.86606738627907],
-    zoom: 13,
+    center: [-7.681188802658286, 110.83153298129844],
+    zoom: 11,
     layers: [peta1, Kecamatan, vaksin]
     });
 

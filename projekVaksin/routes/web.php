@@ -59,4 +59,4 @@ Route::post('/admin/user/simpan', [UserController::class, 'store']);
 Route::post('/admin/user/update/{id}', [UserController::class, 'update']);
 Route::get('/admin/user/delete/{id}', [UserController::class, 'delete']);
 
-
+Auth::routes();

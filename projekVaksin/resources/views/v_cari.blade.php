@@ -108,9 +108,9 @@
   var vaksin = L.layerGroup();
 
   var map = L.map('map', {
-  center: [-7.560565, 110.816394],
-  zoom: 12,
-  layers: [peta1, vaksin]
+    center: [-7.681188802658286, 110.83153298129844],
+    zoom: 11,
+    layers: [peta1, vaksin]
   });
 
   var baseMaps = {

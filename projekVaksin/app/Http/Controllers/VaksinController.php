@@ -90,7 +90,6 @@ class VaksinController extends Controller
 
         $data = [
             'title' => 'Edit Tempat vaksin',
-            // 'jenis' => $this->JenisModel->AllData(),
             'kecamatan' => $this->KecamatanModel->AllData(),
             'tempatVaksin' => $this->VaksinModel->TempatvaksinById($id_tempatvaksin),
 

@@ -18,7 +18,6 @@ class WebController extends Controller
     public function __construct()
     {
         $this->WebModel = new WebModel();
-        
     }
 
     /**
@@ -93,13 +92,6 @@ class WebController extends Controller
 
         $mail->send();
         return redirect()->route('about')->with('pesan', 'Berhasil mengirimkan Email');
-
-        // $dt = $mail->send();
-        // if ($dt) {
-        //     return redirect()->route('about')->with('pesan', 'Berhasil mengirimkan Email');
-        // } else {
-        //     echo 'waduw';
-        // }
     }
 
     public function cari()
@@ -117,7 +109,6 @@ class WebController extends Controller
         $data = [
             'title' => 'Cari Tempat Vaksin',
             'kecamatan' => $this->WebModel->DataKecamatan(),
-            // 'jenis' => $this->WebModel->DataJenis(),
             'cari' => $cari,
             'vaksin' => $this->WebModel->CariDataVaksin($cari),
         ];
