@@ -135,7 +135,7 @@
 
     // Variabel untuk menampilkan map
     var map = L.map('map', {
-    center: [-7.560565, 110.816394],
+    center: [-7.667458996836592, 110.86606738627907],
     zoom: 13,
     layers: [peta1, Kecamatan, vaksin]
     });
@@ -185,13 +185,19 @@
       }
 
       //Menambahkan marker dan pop up informasi pada marker
-      var informasi = "<center><h4><b>{{$data->nama_tempatVaksin}}</b></h4><br><img width='65%' height='100px' src='{{asset('foto')}}/"+foto+"'<br><br>Tempat Vaksin<br>{{$data->alamat}}<br><a href='/tempatVaksin/{{$data->id_tempatVaksin}}' class='btn btn-success'>Detail</a></center>"
+      var informasi = "<center><h4><b>{{$data->nama_tempatVaksin}}</b></h4><br><img width='65%' height='100px' src='{{asset('foto')}}/"+foto+"'<br><br><br>{{$data->alamat}}<br><a href='/tempatVaksin/{{$data->id_tempatVaksin}}' class='btn btn-success'>Detail</a></center>"
       L.marker([<?= $data->posisi?>],{icon: markerVaksin}).
         addTo(vaksin).
         bindPopup(informasi);
     @endforeach
 
-
+    const lokasi = (lat, lng) => {
+        map.setView([lat, lng],17);
+        const component = document.getElementById('scroll');
+        component.scrollIntoView({
+            behavior: 'smooth'
+        });
+    };
 
     var legend = L.control({ position: "bottomright" });
 

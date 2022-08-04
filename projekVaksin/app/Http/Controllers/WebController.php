@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\WebModel;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
 
 class WebController extends Controller
 {
@@ -32,6 +35,71 @@ class WebController extends Controller
             'vaksin' => $this->WebModel->AllDataVaksin(),
         ];
         return view('v_web', $data);
+    }
+
+    public function about()
+    {
+        $data = [
+            'title' => 'About',
+        ];
+
+        return view('v_about', $data);
+    }
+
+    public function send(Request $request)
+    {
+        Request()->validate(
+            [
+                'name' => 'required',
+                'email' => 'required',
+                'subject' => 'required',
+                'message' => 'required',
+            ],
+            [
+                'name.required' => 'Wajib diisi !!!',
+                'email.required' => 'Wajib diisi !!!',
+                'subject.required' => 'Wajib diisi !!!',
+                'message.required' => 'Wajib diisi !!!',
+            ]
+        );
+        $name = $request->name;
+        $email = $request->email;
+        $subject = $request->subject;
+        $message = $request->message;
+
+        require 'PHPMailer/vendor/autoload.php';
+        require 'PHPMailer/vendor/phpmailer/phpmailer/src/Exception.php';
+        require 'PHPMailer/vendor/phpmailer/phpmailer/src/PHPMailer.php';
+        require 'PHPMailer/vendor/phpmailer/phpmailer/src/SMTP.php';
+
+        $mail = new PHPMailer(true);
+        // $mail->SMTPDebug = 2;
+        $mail->isSMTP();
+        $mail->Host       = 'smtp.gmail.com';
+        $mail->SMTPAuth   = true;
+        $mail->Username   = 'fositiv2020@gmail.com';
+        $mail->Password   = 'hjuozpbivjudhgrs';
+        $mail->SMTPSecure = 'tls';
+        $mail->Port       = 587;
+
+        //Recipients
+        $mail->setFrom($email, $name);
+        $mail->addAddress('fositiv2020@gmail.com');
+
+        //Content
+        $mail->isHTML(true);
+        $mail->Subject = 'Kritik dan Saran SIG Vaksinasi Sukoharjo mengenai ' . $subject;
+        $mail->Body    = $message;
+
+        $mail->send();
+        return redirect()->route('about')->with('pesan', 'Berhasil mengirimkan Email');
+
+        // $dt = $mail->send();
+        // if ($dt) {
+        //     return redirect()->route('about')->with('pesan', 'Berhasil mengirimkan Email');
+        // } else {
+        //     echo 'waduw';
+        // }
     }
 
     public function cari()

@@ -145,7 +145,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <a href="/tempatvaksin" class="nav-link">Tempat Vaksinasi</a>
             </li>
             <li class="nav-item">
-                <a href="/" class="nav-link">About</a>
+                <a href="/about" class="nav-link">About</a>
             </li>
             <li class="nav-item">
             <a class="nav-link" href="{{ route('login') }}" >Login</a>

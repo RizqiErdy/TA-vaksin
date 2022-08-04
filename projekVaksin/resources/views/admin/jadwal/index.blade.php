@@ -24,8 +24,8 @@
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                         <h5><i class="icon fas fa-check"></i> {{session('pesan')}}</h5>
                     </div>
-                    @endif 
-                    
+                    @endif
+
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
                             <tr>
@@ -100,9 +100,7 @@
                                 <label>Date:</label>
                                 <div class="input-group date" id="reservationdate" data-target-input="nearest">
                                     <input type="date" name="tanggal" class="form-control datetimepicker-input">
-                                    <div class="input-group-append" data-toggle="datetimepicker">
-                                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                                    </div>
+                                    <div></div>
                                 </div>
                                 <div class="text-danger">
                                     @error('tanggal')
@@ -207,9 +205,7 @@
                                     <label>Date:</label>
                                     <div class="input-group date" id="reservationdate" data-target-input="nearest">
                                         <input type="date" name="tanggal" value="{{Carbon\Carbon::parse($dataj->tanggal)->translatedFormat('Y-m-d');}}" class="form-control datetimepicker-input" data-target="#reservationdate"/>
-                                        <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
-                                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                                        </div>
+                                        <div></div>
                                     </div>
                                     <div class="text-danger">
                                         @error('tanggal')
