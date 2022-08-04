@@ -14,7 +14,7 @@
                 <!-- /.card-header -->
                 <div class="card-body">
                     <div class="tab-content p-1">
-                      <a href="/tempatvaksin" type="button" class="btn btn-primary btn-flat btn-sm">All Data</a>  
+                      <a href="/tempatvaksin" type="button" class="btn btn-success btn-flat btn-s" >All Data</a>
                         <form method="GET" enctype="multipart/form-data" action="/kecamatan">
 
                             <div class="form-group mt-3">
@@ -41,7 +41,7 @@
             <div class="card-header">
                 <h3 class="card-title">
                 <i class="fas fa-building mr-1"></i>
-                SIGPV
+                SIGV Kab.Sukoharjo
                 </h3>
                 <div class="card-tools">
 
@@ -60,7 +60,7 @@
         </section>
   <!-- right col (We are only adding the ID to make the widgets sortable)-->
   <div class="col-sm-12">
-    <div class="text-center"><h2><b>Daftar Tempat Vaksinasi</b></h2></div>
+    <div class="text-center"><h2><b>DAFTAR TEMPAT VAKSINASI</b></h2></div>
     <table id="example2" class="table table-bordered table-striped">
       <thead>
           <tr>

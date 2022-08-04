@@ -28,7 +28,7 @@ class WebController extends Controller
     public function index()
     {
         $data = [
-            'title' => 'Sistem Informasi Geografis Persebaran Vaksinasi Kabupaten Sukoharjo',
+            'title' => 'SISTEM INFORMASI GEOGRAFIS PERSEBARAN VAKSINASI KAB.SUKOHARJO',
             'kecamatan' => $this->WebModel->DataKecamatan(),
             'jadwal' => $this->WebModel->Jadwal7hari(),
             'vaksin' => $this->WebModel->AllDataVaksin(),
@@ -39,7 +39,7 @@ class WebController extends Controller
     public function about()
     {
         $data = [
-            'title' => 'About',
+            'title' => 'ABOUT',
         ];
 
         return view('v_about', $data);
@@ -118,7 +118,7 @@ class WebController extends Controller
     public function tempatvaksin()
     {
         $data = [
-            'title' => 'Tempat Vaksinasi Di Kab.Sukoharjo ',
+            'title' => 'TEMPAT VAKSINASI KAB.SUKOHARJO',
             'vaksin' => $this->WebModel->TempatVaksin(),
             'kecamatan' => $this->WebModel->DataKecamatan(),
         ];
@@ -126,7 +126,8 @@ class WebController extends Controller
         return view('v_tempatVaksin', $data);
     }
 
-    public function kecamatan(){
+    public function kecamatan()
+    {
         Request()->validate(
             [
                 'kecamatan' => 'required',
@@ -138,13 +139,13 @@ class WebController extends Controller
         $id_kecamatan = Request()->kecamatan;
         $kec = $this->WebModel->KecamatanById($id_kecamatan);
         $data = [
-            'title' => 'Tempat Vaksin Kecamatan '. $kec->nama_kecamatan,
-            'kecamatan'=> $this->WebModel->DataKecamatan(),
-            'kec'=> $kec,
-            'ibadah'=>$this->WebModel->DataVaksinbyKecamatan($id_kecamatan),
+            'title' => 'TEMPAT VAKSINASI DI KECAMATAN ' . $kec->nama_kecamatan,
+            'kecamatan' => $this->WebModel->DataKecamatan(),
+            'kec' => $kec,
+            'vaksin' => $this->WebModel->DataVaksinbyKecamatan($id_kecamatan),
         ];
 
-        return view('v_kecamatan',$data);
+        return view('v_kecamatan', $data);
     }
 
     public function detail($id_tempatVaksin)

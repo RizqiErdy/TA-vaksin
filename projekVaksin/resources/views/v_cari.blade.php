@@ -9,7 +9,7 @@
       <div class="card-header">
         <h3 class="card-title">
           <i class="fas fa-building mr-1"></i>
-          SIG Persebaran Vaksinasi Kab.Sukoharjo
+          SIG Vaksinasi Kab.Sukoharjo
         </h3>
       </div><!-- /.card-header -->
       <div class="card-body">

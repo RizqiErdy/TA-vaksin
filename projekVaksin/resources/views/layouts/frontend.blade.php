@@ -123,7 +123,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <a href="/" class="navbar-brand">
         <img src="{{ asset('foto')}}/logo3.png" alt="AdminLTE Logo" class="brand-image "
              style="opacity: .8">
-        <span class="brand-text font-weight-light"><b>SIGPV SUKOHARJO</b></span>
+        <span class="brand-text font-weight-light"><b>SIGV SUKOHARJO</b></span>
       </a>
 
       <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -191,7 +191,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <footer class="main-footer navbar-dark">
     <!-- To the right -->
     <!-- Default to the left -->
-    <center><p style="color: white">Copyright &copy; SIG Persebaran Vaksinasi Kab.Sukoharjo</p></center>
+    <center><p style="color: white">Copyright &copy; SIG Vaksinasi Kab.Sukoharjo</p></center>
   </footer>
 </div>
 <!-- ./wrapper -->
