@@ -66,10 +66,7 @@
           <tr>
             <th width="10px" class="text-center">No</th>
             <th>Nama</th>
-            <th>Foto</th>
-            <th>Fasilitas</th>
             <th>Alamat</th>
-            <th>Kecamatan</th>
             <th width="150px" class="text-center">Action</th>
           </tr>
       </thead>
@@ -79,14 +76,7 @@
               <tr>
                   <td class="text-center">{{$no++}}</td>
                   <td>{{$data->nama_tempatVaksin}}</td>
-                  @if($data->foto != '')
-                  <td><img src="{{asset('foto')}}/{{$data->foto}}" width="75px"></td>
-                  @else
-                      <td><img src="{{asset('foto')}}/notfound.png" width="75px"></td>
-                  @endif
-                  <td>{{$data->fasilitas}}</td>
                   <td>{{$data->alamat}}</td>
-                  <td>{{$data->nama_kecamatan}}</td>
                   <td class="text-center">
                       <a href="/tempatVaksin/{{$data->id_tempatVaksin}}" class="btn btn-sm btn-flat btn-info">detail</a>
                       <button class="btn btn-sm btn-flat btn-success" onclick="return lokasi({{$data->posisi}})">lokasi</button>

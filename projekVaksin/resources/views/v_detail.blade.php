@@ -84,6 +84,9 @@
                 <div class="card-body">
                     <div class="tab-content p-1">
                         <div class="bh-sl-loc-list col-md-12" style="height: 392px">
+                            @if($jadwal->count() == 0)
+                            <div colspan="4" style="text-align: center">Tidak ada jadwal</div>
+                            @else
                             <?php $no=1?>
                             @foreach ($jadwal as $data)
                             <div class="p-2 m-1 bg-light border">
@@ -102,6 +105,7 @@
                                 </ul>
                             </div>
                             @endforeach
+                            @endif
                         </div>
                     </div>
                 </div><!-- /.card-body -->

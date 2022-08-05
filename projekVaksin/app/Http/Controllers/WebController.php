@@ -74,16 +74,16 @@ class WebController extends Controller
         $mail = new PHPMailer(true);
         // $mail->SMTPDebug = 2;
         $mail->isSMTP();
-        $mail->Host       = 'smtp.gmail.com';
+        $mail->Host       = 'sigvaksinsukoharjo.my.id';
         $mail->SMTPAuth   = true;
-        $mail->Username   = 'fositiv2020@gmail.com';
-        $mail->Password   = 'hjuozpbivjudhgrs';
+        $mail->Username   = 'vaksinskh@sigvaksinsukoharjo.my.id';
+        $mail->Password   = 'Sukoharjomakmur11';
         $mail->SMTPSecure = 'tls';
         $mail->Port       = 587;
 
         //Recipients
         $mail->setFrom($email, $name);
-        $mail->addAddress('fositiv2020@gmail.com');
+        $mail->addAddress('vaksinsukoharjo@gmail.com');
 
         //Content
         $mail->isHTML(true);
