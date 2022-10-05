@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\KecamatanController;
 use App\Http\Controllers\VaksinController;
 use App\Http\Controllers\JadwalController;
+use App\Http\Controllers\PenerimaController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WebController;
 /*
@@ -52,6 +53,12 @@ Route::get('/admin/jadwalvaksin', [JadwalController::class, 'index'])->name('Jad
 Route::post('/admin/jadwalvaksin/simpan', [JadwalController::class, 'store']);
 Route::post('/admin/jadwalvaksin/update/{id_jadwalVaksin}', [JadwalController::class, 'update']);
 Route::get('/admin/jadwalvaksin/delete/{id_jadwalVaksin}', [JadwalController::class, 'delete']);
+
+//Jadwal Vaksin
+Route::get('/admin/penerimaVaksin', [PenerimaController::class, 'index'])->name('PenerimaVaksin');
+Route::post('/admin/penerimaVaksin/simpan', [PenerimaController::class, 'store']);
+Route::post('/admin/penerimaVaksin/update/{id_jadwalVaksin}', [PenerimaController::class, 'update']);
+Route::get('/admin/penerimaVaksin/delete/{id_jadwalVaksin}', [PenerimaController::class, 'delete']);
 
 //user
 Route::get('/admin/user', [UserController::class, 'index'])->name('User');

@@ -88,4 +88,15 @@ class WebModel extends Model
             ->where('id_tempatVaksin', $id_tempatVaksin)
             ->first();
     }
+
+    public function AllDataTipe()
+    {
+        return DB::table('tipe_vaksin')
+            ->get();
+    }
+    public function AllDataPenerima()
+    {
+        return DB::table('penerima_vaksin')
+            ->get();
+    }
 }

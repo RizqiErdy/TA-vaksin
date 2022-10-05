@@ -119,7 +119,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/admin/jadwalvaksin" class="nav-link {{ request()->is('admin/jadwalVaksin')? 'active' : ''}}">
+            <a href="/admin/jadwalvaksin" class="nav-link {{ request()->is('admin/jadwalvaksin')? 'active' : ''}}">
               <i class="nav-icon fas fa-calendar"></i>
               <p>
                 Jadwal Vaksin
@@ -127,8 +127,16 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/admin/user" class="nav-link {{ request()->is('admin/user')? 'active' : ''}}">
+            <a href="/admin/penerimaVaksin" class="nav-link {{ request()->is('admin/penerimaVaksin')? 'active' : ''}}">
               <i class="nav-icon fas fa-users"></i>
+              <p>
+                Jumlah Penerima
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/admin/user" class="nav-link {{ request()->is('admin/user')? 'active' : ''}}">
+              <i class="nav-icon fas fa-user"></i>
               <p>
                 User
               </p>

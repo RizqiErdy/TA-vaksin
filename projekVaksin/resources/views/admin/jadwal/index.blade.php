@@ -66,6 +66,7 @@
     </div>
     <!-- /.content -->
 
+    <!-- /.modal tambah -->
     <div class="modal fade" id="tambah">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -170,6 +171,9 @@
     </div>
     <!-- /.modal -->
 
+   
+
+    <!-- /.modal edit -->
     @foreach($jadwal as $dataj)
         <div class="modal fade" id="ubah{{$dataj->id_jadwalVaksin}}">
             <div class="modal-dialog">
