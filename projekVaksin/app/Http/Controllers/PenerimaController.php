@@ -24,6 +24,7 @@ class PenerimaController extends Controller
             'title' => 'Penerima',
             'vaksin' => $this->VaksinModel->AllData(),
             'penerima'=>$this->PenerimaModel->AllData(),
+            'penerimanow'=>$this->PenerimaModel->DataHariNow(),
             'penerimabyPenerima'=>$this->PenerimaModel->DataGroupbyPenerima(),
             'penerimabyTipe'=>$this->PenerimaModel->DataGroupbyTipe(),
             'jnsPenerima'=>$this->WebModel->AllDataPenerima(),

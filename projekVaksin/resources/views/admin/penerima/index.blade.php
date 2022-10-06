@@ -4,7 +4,7 @@
     <!-- Main content -->
     <div class="row">
 
-        <!-- Per Tipe -->
+        <!-- Komulatif -->
         <div class="col-4">
             <div class="card">
                 <div class="card-header">
@@ -17,7 +17,12 @@
                           <b>Total Jumlah Penerima</b> <a class="float-right">{{$penerima->sum('jumlah')}}</a>
                         </li>
                         <li class="list-group-item">
-                          <b>Following</b> <a class="float-right">543</a>
+                          <b>Total hari ini</b> <a class="float-right">
+                            @if($penerimanow->count() == 0)
+                                0
+                            @else
+                                {{$penerimanow->sum('jumlah')}}
+                            @endif</a>
                         </li>
                         <li class="list-group-item">
                           <b>Friends</b> <a class="float-right">13,287</a>

@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class PenerimaModel extends Model
 {
@@ -24,6 +25,12 @@ class PenerimaModel extends Model
         ->join('tipe_vaksin', 'jumlah_penerima.id_tipe', '=', 'tipe_vaksin.id_tipe')
         ->join('penerima_vaksin', 'jumlah_penerima.id_penerima', '=', 'penerima_vaksin.id_penerima')
         ->orderby('tanggal', 'DESC')
+        ->get();
+    }
+
+    public function DataHariNow(){
+        return DB::table('jumlah_penerima')
+        ->where('tanggal', Carbon::now()->subDay())
         ->get();
     }
 

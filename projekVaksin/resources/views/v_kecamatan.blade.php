@@ -59,6 +59,39 @@
             </div>
         </section>
   <!-- right col (We are only adding the ID to make the widgets sortable)-->
+        <!-- Per Tipe -->
+        <div class="col-4">
+          <div class="card">
+              <div class="card-header">
+                  <h3 class="card-title">Data Komulatif </strong></h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <h4>Data Kecamatan {{$kec->nama_kecamatan}}</h4>
+                  <ul class="list-group list-group-unbordered mb-3">
+                      <li class="list-group-item">
+                        <b>Total Jumlah Penerima</b> <a class="float-right">
+                          @if($penerimatotal->count() == 0)
+                          0
+                          @else
+                            {{$penerimatotal->sum('jumlah')}}
+                          @endif</a>
+                      </li>
+                      <li class="list-group-item">
+                        <b>Total hari ini</b> <a class="float-right">
+                          @if($penerimanow->count() == 0)
+                              0
+                          @else
+                              {{$penerimanow->sum('jumlah')}}
+                          @endif</a>
+                      </li>
+                    </ul>
+              </div>
+              <!-- /.col -->
+          </div>
+          <!-- /.row -->
+      </div>
+
   <div class="col-sm-12">
     <div class="text-center"><h2><b>DAFTAR TEMPAT VAKSINASI KECAMATAN {{$kec->nama_kecamatan}}</b></h2></div>
     <table id="example2" class="table table-bordered table-striped">

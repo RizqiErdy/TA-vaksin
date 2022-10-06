@@ -142,6 +142,8 @@ class WebController extends Controller
             'title' => 'TEMPAT VAKSINASI DI KECAMATAN ' . $kec->nama_kecamatan,
             'kecamatan' => $this->WebModel->DataKecamatan(),
             'kec' => $kec,
+            'penerimanow'=>$this->WebModel->jumlahPenerimaKecbyTgl($id_kecamatan),
+            'penerimatotal'=>$this->WebModel->jumlahPenerimaKecTotal($id_kecamatan),
             'vaksin' => $this->WebModel->DataVaksinbyKecamatan($id_kecamatan),
         ];
 

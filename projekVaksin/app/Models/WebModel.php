@@ -99,4 +99,21 @@ class WebModel extends Model
         return DB::table('penerima_vaksin')
             ->get();
     }
+
+    public function jumlahPenerimaKecTotal($id_kecamatan){
+        return DB::table('jumlah_penerima')
+        ->join('tempat_vaksin', 'jumlah_penerima.id_tempatVaksin', '=', 'tempat_vaksin.id_tempatVaksin')
+        ->join('kecamatan', 'kecamatan.id_kecamatan', '=', 'tempat_vaksin.id_kecamatan')
+        ->where('tempat_vaksin.id_kecamatan', $id_kecamatan)
+        ->get();
+    }
+
+    public function jumlahPenerimaKecbyTgl($id_kecamatan){
+        return DB::table('jumlah_penerima')
+        ->join('tempat_vaksin', 'jumlah_penerima.id_tempatVaksin', '=', 'tempat_vaksin.id_tempatVaksin')
+        ->join('kecamatan', 'kecamatan.id_kecamatan', '=', 'tempat_vaksin.id_kecamatan')
+        ->where('tempat_vaksin.id_kecamatan', $id_kecamatan)
+        ->where('tanggal', Carbon::now()->subDay())
+        ->get();
+    }
 }
