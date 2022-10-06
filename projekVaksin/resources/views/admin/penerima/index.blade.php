@@ -3,6 +3,99 @@
 <!-- Content Wrapper. Contains page content -->
     <!-- Main content -->
     <div class="row">
+
+        <!-- Per Tipe -->
+        <div class="col-4">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Data Komulatif </strong></h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <ul class="list-group list-group-unbordered mb-3">
+                        <li class="list-group-item">
+                          <b>Total Jumlah Penerima</b> <a class="float-right">{{$penerima->sum('jumlah')}}</a>
+                        </li>
+                        <li class="list-group-item">
+                          <b>Following</b> <a class="float-right">543</a>
+                        </li>
+                        <li class="list-group-item">
+                          <b>Friends</b> <a class="float-right">13,287</a>
+                        </li>
+                      </ul>
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div>
+
+        <!-- Per Tipe -->
+        <div class="col-4">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Jumlah Vaksinasi Per Dosis </strong></h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <table class="table table-bordered table-striped" >
+                        <thead>
+                            <tr>
+                                <th width="50px" class="text-center">No</th>
+                                <th>Dosis Vaksin</th>
+                                <th>Jumlah</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php $no=1?>
+                            @foreach ($penerimabyTipe as $data)
+                                <tr>
+                                    <td class="text-center">{{$no++}}</td>
+                                    <td>{{($data->nama_tipe)}}</td>
+                                    <td>{{$data->total}}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div>
+
+        <!-- Per penerima -->
+        <div class="col-4">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Jumlah Vaksinasi Per Penerima </strong></h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <table class="table table-bordered table-striped" >
+                        <thead>
+                            <tr>
+                                <th width="50px" class="text-center">No</th>
+                                <th>Tanggal</th>
+                                <th>Jumlah</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php $no=1?>
+                            @foreach ($penerimabyPenerima as $data)
+                            
+                                <tr>
+                                    <td class="text-center">{{$no++}}</td>
+                                    <td>{{($data->nama_penerima)}}</td>
+                                    <td>{{$data->total}}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div>
+
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
@@ -62,72 +155,6 @@
             <!-- /.row -->
         </div>
 
-        <!-- Per Tipe -->
-        <div class="col-4">
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">Jumlah Vaksinasi Per Hari </strong></h3>
-                </div>
-                <!-- /.card-header -->
-                <div class="card-body">
-                    <table id="example1" class="table table-bordered table-striped" >
-                        <thead>
-                            <tr>
-                                <th width="50px" class="text-center">No</th>
-                                <th>Dosis Vaksin</th>
-                                <th>Jumlah</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php $no=1?>
-                            @foreach ($penerimabyTipe as $data)
-                                <tr>
-                                    <td class="text-center">{{$no++}}</td>
-                                    <td>{{($data->nama_tipe)}}</td>
-                                    <td>{{$data->total}}</td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
-                <!-- /.col -->
-            </div>
-            <!-- /.row -->
-        </div>
-
-        <!-- Per penerima -->
-        <div class="col-4">
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">Jumlah Vaksinasi Per Penerima </strong></h3>
-                </div>
-                <!-- /.card-header -->
-                <div class="card-body">
-                    <table id="example1" class="table table-bordered table-striped" >
-                        <thead>
-                            <tr>
-                                <th width="50px" class="text-center">No</th>
-                                <th>Tanggal</th>
-                                <th>Jumlah</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php $no=1?>
-                            @foreach ($penerimabyPenerima as $data)
-                            
-                                <tr>
-                                    <td class="text-center">{{$no++}}</td>
-                                    <td>{{($data->nama_penerima)}}</td>
-                                    <td>{{$data->total}}</td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
-                <!-- /.col -->
-            </div>
-            <!-- /.row -->
-        </div>
     </div>
     <!-- /.content -->
 

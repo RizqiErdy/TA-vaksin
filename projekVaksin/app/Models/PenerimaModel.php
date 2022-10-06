@@ -47,10 +47,10 @@ class PenerimaModel extends Model
         DB::table('jumlah_penerima')->insert($request);
     }
 
-    public function UpdateJadwal($id_jadwalVaksin, $data)
+    public function UpdateJumlah($id_jumlahPenerima, $data)
     {
-        DB::table('jadwal_vaksin')
-            ->where('id_jadwalVaksin', $id_jadwalVaksin)
+        DB::table('jumlah_penerima')
+            ->where('id_jumlahPenerima', $id_jumlahPenerima)
             ->update($data);
     }
 
