@@ -116,4 +116,27 @@ class WebModel extends Model
         ->where('tanggal', Carbon::now()->subDay())
         ->get();
     }
+
+    public function jumlahPenerimaKecbyPenerima($id_kecamatan){
+        return DB::table('jumlah_penerima')
+        ->selectRaw('sum(jumlah) as total, nama_penerima')
+        ->join('penerima_vaksin', 'jumlah_penerima.id_penerima', '=', 'penerima_vaksin.id_penerima')
+        ->join('tempat_vaksin', 'jumlah_penerima.id_tempatVaksin', '=', 'tempat_vaksin.id_tempatVaksin')
+        ->join('kecamatan', 'kecamatan.id_kecamatan', '=', 'tempat_vaksin.id_kecamatan')
+        ->where('tempat_vaksin.id_kecamatan', $id_kecamatan)
+        ->groupBy('nama_penerima')
+        ->get();
+    }
+
+    public function jumlahPenerimaKecbyDosis($id_kecamatan){
+        return DB::table('jumlah_penerima')
+        ->selectRaw('sum(jumlah) as total, nama_tipe')
+        ->join('tipe_vaksin', 'jumlah_penerima.id_tipe', '=', 'tipe_vaksin.id_tipe')
+        ->join('tempat_vaksin', 'jumlah_penerima.id_tempatVaksin', '=', 'tempat_vaksin.id_tempatVaksin')
+        ->join('kecamatan', 'kecamatan.id_kecamatan', '=', 'tempat_vaksin.id_kecamatan')
+        ->where('tempat_vaksin.id_kecamatan', $id_kecamatan)
+        ->orderby('jumlah_penerima.id_tipe', 'ASC')
+        ->groupBy('nama_tipe')
+        ->get();
+    }
 }

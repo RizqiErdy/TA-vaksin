@@ -47,6 +47,7 @@ class PenerimaModel extends Model
         ->selectRaw('sum(jumlah) as total, nama_tipe')
         ->groupBy('nama_tipe')
         ->join('tipe_vaksin', 'jumlah_penerima.id_tipe', '=', 'tipe_vaksin.id_tipe')
+        ->orderby('jumlah_penerima.id_tipe', 'DESC')
         ->get();
     }
 

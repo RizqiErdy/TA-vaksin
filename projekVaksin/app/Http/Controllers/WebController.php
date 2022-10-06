@@ -144,6 +144,8 @@ class WebController extends Controller
             'kec' => $kec,
             'penerimanow'=>$this->WebModel->jumlahPenerimaKecbyTgl($id_kecamatan),
             'penerimatotal'=>$this->WebModel->jumlahPenerimaKecTotal($id_kecamatan),
+            'penerimadosis'=>$this->WebModel->jumlahPenerimaKecbyDosis($id_kecamatan),
+            'penerima'=>$this->WebModel->jumlahPenerimaKecbyPenerima($id_kecamatan),
             'vaksin' => $this->WebModel->DataVaksinbyKecamatan($id_kecamatan),
         ];
 

@@ -79,7 +79,7 @@
                         <thead>
                             <tr>
                                 <th width="50px" class="text-center">No</th>
-                                <th>Tanggal</th>
+                                <th>Penerima</th>
                                 <th>Jumlah</th>
                             </tr>
                         </thead>

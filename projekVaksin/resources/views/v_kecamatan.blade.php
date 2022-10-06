@@ -59,7 +59,7 @@
             </div>
         </section>
   <!-- right col (We are only adding the ID to make the widgets sortable)-->
-        <!-- Per Tipe -->
+        <!-- total -->
         <div class="col-4">
           <div class="card">
               <div class="card-header">
@@ -91,6 +91,81 @@
           </div>
           <!-- /.row -->
       </div>
+
+      <!-- Per Tipe -->
+      <div class="col-4">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Jumlah Vaksinasi Per Dosis </strong></h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+                <table class="table table-bordered table-striped" >
+                    <thead>
+                        <tr>
+                            <th width="50px" class="text-center">No</th>
+                            <th>Dosis Vaksin</th>
+                            <th>Jumlah</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      @if($penerimadosis->count() == 0)
+                        <td colspan="3" style="text-align: center">Belum Ada Data</td>
+                      @else
+                        <?php $no=1?>
+                        @foreach ($penerimadosis as $data)
+                            <tr>
+                                <td class="text-center">{{$no++}}</td>
+                                <td>{{($data->nama_tipe)}}</td>
+                                <td>{{$data->total}}</td>
+                            </tr>
+                        @endforeach
+                      @endif
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+
+    <!-- Per penerima -->
+    <div class="col-4">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Jumlah Vaksinasi Per Penerima </strong></h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+                <table class="table table-bordered table-striped" >
+                    <thead>
+                        <tr>
+                            <th width="50px" class="text-center">No</th>
+                            <th>Penerima</th>
+                            <th>Jumlah</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      @if($penerima->count() == 0)
+                        <td colspan="3" style="text-align: center">Belum Ada Data</td>
+                      @else
+                        <?php $no=1?>
+                        @foreach ($penerima as $data)
+                        
+                            <tr>
+                                <td class="text-center">{{$no++}}</td>
+                                <td>{{($data->nama_penerima)}}</td>
+                                <td>{{$data->total}}</td>
+                            </tr>
+                        @endforeach
+                      @endif
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
 
   <div class="col-sm-12">
     <div class="text-center"><h2><b>DAFTAR TEMPAT VAKSINASI KECAMATAN {{$kec->nama_kecamatan}}</b></h2></div>
