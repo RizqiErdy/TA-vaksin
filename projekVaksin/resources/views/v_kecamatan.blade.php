@@ -32,10 +32,10 @@
                     </div>
                 </div><!-- /.card-body -->
             </div>
-        </section>
+
 
   <!-- /.Left col -->
-        <section class="col-md-12 connectedSortable ">
+        <div class="col-md-12 connectedSortable ">
             <!-- Custom tabs (Charts with tabs)-->
             <div class="card">
             <div class="card-header">
@@ -57,10 +57,12 @@
                 </div>
             </div><!-- /.card-body -->
             </div>
-        </section>
+        </div>
+    </section>
   <!-- right col (We are only adding the ID to make the widgets sortable)-->
         <!-- total -->
-        <div class="col-4">
+        <div class="row">
+        <div class="col-lg-4 col-12">
           <div class="card">
               <div class="card-header">
                   <h3 class="card-title">Data Komulatif </strong></h3>
@@ -93,7 +95,7 @@
       </div>
 
       <!-- Per Tipe -->
-      <div class="col-4">
+      <div class="col-lg-4 col-12">
         <div class="card">
             <div class="card-header">
                 <h3 class="card-title">Jumlah Vaksinasi Per Dosis </strong></h3>
@@ -130,7 +132,7 @@
     </div>
 
     <!-- Per penerima -->
-    <div class="col-4">
+    <div class="col-lg-4 col-12">
         <div class="card">
             <div class="card-header">
                 <h3 class="card-title">Jumlah Vaksinasi Per Penerima </strong></h3>
@@ -151,7 +153,7 @@
                       @else
                         <?php $no=1?>
                         @foreach ($penerima as $data)
-                        
+
                             <tr>
                                 <td class="text-center">{{$no++}}</td>
                                 <td>{{($data->nama_penerima)}}</td>
