@@ -21,7 +21,7 @@ class VaksinController extends Controller
             'title' => 'Tempat Vaksin',
             'vaksin' => $this->VaksinModel->AllData(),
         ];
-        return view('admin.tempatvaksin.index', $data);
+        return view('admin.tempatVaksin.index', $data);
     }
 
     //Tambah Tempat vaksin
@@ -31,7 +31,7 @@ class VaksinController extends Controller
             'title' => 'Tambah Tempat Vaksin',
             'kecamatan' => $this->KecamatanModel->AllData(),
         ];
-        return view('admin.tempatvaksin.create', $data);
+        return view('admin.tempatVaksin.create', $data);
     }
 
     public function store()
@@ -94,7 +94,7 @@ class VaksinController extends Controller
             'tempatVaksin' => $this->VaksinModel->TempatvaksinById($id_tempatvaksin),
 
         ];
-        return view('admin.tempatvaksin.edit', $data);
+        return view('admin.tempatVaksin.edit', $data);
     }
 
     public function update($id_tempatvaksin)
