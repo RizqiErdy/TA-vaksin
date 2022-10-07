@@ -24,9 +24,6 @@
                                 {{$penerimanow->sum('jumlah')}}
                             @endif</a>
                         </li>
-                        <li class="list-group-item">
-                          <b>Friends</b> <a class="float-right">13,287</a>
-                        </li>
                       </ul>
                 </div>
                 <!-- /.col -->
@@ -86,7 +83,7 @@
                         <tbody>
                             <?php $no=1?>
                             @foreach ($penerimabyPenerima as $data)
-                            
+
                                 <tr>
                                     <td class="text-center">{{$no++}}</td>
                                     <td>{{($data->nama_penerima)}}</td>
