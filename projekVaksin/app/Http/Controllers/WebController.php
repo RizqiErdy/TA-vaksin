@@ -76,8 +76,8 @@ class WebController extends Controller
         $mail->isSMTP();
         $mail->Host       = 'sigvaksinsukoharjo.my.id';
         $mail->SMTPAuth   = true;
-        $mail->Username   = 'vaksinskh@sigvaksinsukoharjo.my.id';
-        $mail->Password   = 'Sukoharjomakmur11';
+        $mail->Username   = 'sigvaksinskh@sigvaksinsukoharjo.my.id';
+        $mail->Password   = 'zT)QSdHr$t5#';
         $mail->SMTPSecure = 'tls';
         $mail->Port       = 587;
 
@@ -142,10 +142,10 @@ class WebController extends Controller
             'title' => 'TEMPAT VAKSINASI DI KECAMATAN ' . $kec->nama_kecamatan,
             'kecamatan' => $this->WebModel->DataKecamatan(),
             'kec' => $kec,
-            'penerimanow'=>$this->WebModel->jumlahPenerimaKecbyTgl($id_kecamatan),
-            'penerimatotal'=>$this->WebModel->jumlahPenerimaKecTotal($id_kecamatan),
-            'penerimadosis'=>$this->WebModel->jumlahPenerimaKecbyDosis($id_kecamatan),
-            'penerima'=>$this->WebModel->jumlahPenerimaKecbyPenerima($id_kecamatan),
+            'penerimanow' => $this->WebModel->jumlahPenerimaKecbyTgl($id_kecamatan),
+            'penerimatotal' => $this->WebModel->jumlahPenerimaKecTotal($id_kecamatan),
+            'penerimadosis' => $this->WebModel->jumlahPenerimaKecbyDosis($id_kecamatan),
+            'penerima' => $this->WebModel->jumlahPenerimaKecbyPenerima($id_kecamatan),
             'vaksin' => $this->WebModel->DataVaksinbyKecamatan($id_kecamatan),
         ];
 
