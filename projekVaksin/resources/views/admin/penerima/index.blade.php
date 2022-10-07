@@ -5,7 +5,7 @@
     <div class="row">
 
         <!-- Komulatif -->
-        <div class="col-4">
+        <div class="col-lg-4 col-12">
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">Data Komulatif </strong></h3>
@@ -32,7 +32,7 @@
         </div>
 
         <!-- Per Tipe -->
-        <div class="col-4">
+        <div class="col-lg-4 col-12">
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">Jumlah Vaksinasi Per Dosis </strong></h3>
@@ -48,6 +48,9 @@
                             </tr>
                         </thead>
                         <tbody>
+                        @if($penerimabyTipe->count() == 0)
+                            <td colspan="3" style="text-align: center">Belum Ada Data</td>
+                        @else
                             <?php $no=1?>
                             @foreach ($penerimabyTipe as $data)
                                 <tr>
@@ -56,6 +59,7 @@
                                     <td>{{$data->total}}</td>
                                 </tr>
                             @endforeach
+                            @endif
                         </tbody>
                     </table>
                 </div>
@@ -65,7 +69,7 @@
         </div>
 
         <!-- Per penerima -->
-        <div class="col-4">
+        <div class="col-lg-4 col-12">
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">Jumlah Vaksinasi Per Penerima </strong></h3>
@@ -81,6 +85,9 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @if($penerimabyPenerima->count() == 0)
+                            <td colspan="3" style="text-align: center">Belum Ada Data</td>
+                            @else
                             <?php $no=1?>
                             @foreach ($penerimabyPenerima as $data)
 
@@ -90,6 +97,7 @@
                                     <td>{{$data->total}}</td>
                                 </tr>
                             @endforeach
+                            @endif
                         </tbody>
                     </table>
                 </div>
