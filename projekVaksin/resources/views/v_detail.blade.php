@@ -40,6 +40,114 @@
             </div>
             <!-- /.card-body -->
         </div>
+        <!-- total -->
+        <div class="row">
+            <div class="col-lg-4 col-12">
+              <div class="card">
+                  <div class="card-header">
+                      <h3 class="card-title">Data Komulatif </strong></h3>
+                  </div>
+                  <!-- /.card-header -->
+                  <div class="card-body">
+                    <h4>Data {{$vaksin->nama_tempatVaksin}}</h4>
+                      <ul class="list-group list-group-unbordered mb-3">
+                          <li class="list-group-item">
+                            <b>Total Jumlah Penerima</b> <a class="float-right">
+                              @if($penerimatotal->count() == 0)
+                              0
+                              @else
+                                {{$penerimatotal->sum('jumlah')}}
+                              @endif</a>
+                          </li>
+                          <li class="list-group-item">
+                            <b>Total hari ini</b> <a class="float-right">
+                              @if($penerimanow->count() == 0)
+                                  0
+                              @else
+                                  {{$penerimanow->sum('jumlah')}}
+                              @endif</a>
+                          </li>
+                        </ul>
+                  </div>
+                  <!-- /.col -->
+              </div>
+              <!-- /.row -->
+          </div>
+    
+          <!-- Per Tipe -->
+          <div class="col-lg-4 col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Jumlah Vaksinasi Per Dosis </strong></h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <table class="table table-bordered table-striped" >
+                        <thead>
+                            <tr>
+                                <th width="50px" class="text-center">No</th>
+                                <th>Dosis Vaksin</th>
+                                <th>Jumlah</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                          @if($penerimadosis->count() == 0)
+                            <td colspan="3" style="text-align: center">Belum Ada Data</td>
+                          @else
+                            <?php $no=1?>
+                            @foreach ($penerimadosis as $data)
+                                <tr>
+                                    <td class="text-center">{{$no++}}</td>
+                                    <td>{{($data->nama_tipe)}}</td>
+                                    <td>{{$data->total}}</td>
+                                </tr>
+                            @endforeach
+                          @endif
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div>
+    
+        <!-- Per penerima -->
+        <div class="col-lg-4 col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Jumlah Vaksinasi Per Penerima </strong></h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <table class="table table-bordered table-striped" >
+                        <thead>
+                            <tr>
+                                <th width="50px" class="text-center">No</th>
+                                <th>Penerima</th>
+                                <th>Jumlah</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                          @if($penerima->count() == 0)
+                            <td colspan="3" style="text-align: center">Belum Ada Data</td>
+                          @else
+                            <?php $no=1?>
+                            @foreach ($penerima as $data)
+    
+                                <tr>
+                                    <td class="text-center">{{$no++}}</td>
+                                    <td>{{($data->nama_penerima)}}</td>
+                                    <td>{{$data->total}}</td>
+                                </tr>
+                            @endforeach
+                          @endif
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div>
         <section class="col-sm-8" connectedSortable>
             <div class="card" style="height: 500px">
                 <div class="card-header">
@@ -111,6 +219,7 @@
                 </div><!-- /.card-body -->
                 </div>
         </section>
+        
         <!-- /.Left col -->
         <!-- right col (We are only adding the ID to make the widgets sortable)-->
 

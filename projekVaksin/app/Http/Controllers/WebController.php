@@ -159,6 +159,10 @@ class WebController extends Controller
             'title' => 'Detail Tempat Vaksin ' . $tvaksin->nama_tempatVaksin,
             'kecamatan' => $this->WebModel->DataKecamatan(),
             'jadwal' => $this->WebModel->JadwalByTempatVaksin($id_tempatVaksin),
+            'penerimanow' => $this->WebModel->jumlahPenerimaTempatbyTgl($id_tempatVaksin),
+            'penerimatotal' => $this->WebModel->jumlahPenerimaTempatTotal($id_tempatVaksin),
+            'penerimadosis' => $this->WebModel->jumlahPenerimaTempatbyDosis($id_tempatVaksin),
+            'penerima' => $this->WebModel->jumlahPenerimaTempatbyPenerima($id_tempatVaksin),
             'vaksin' => $this->WebModel->DataVaksinById($id_tempatVaksin),
         ];
 
